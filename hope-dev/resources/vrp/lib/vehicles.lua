@@ -868,6 +868,8 @@ function vehiclePrice(vname)
 	if vehglobal[vname] then
 		return parseInt(vehglobal[vname][3])
 	end
+
+	-- return 0
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLETYPE
@@ -876,6 +878,8 @@ function vehicleType(vname)
 	if vehglobal[vname] then
 		return vehglobal[vname][4]
 	end
+	
+	-- return "Desconhecido"
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VEHICLEGEMS
