@@ -1,37 +1,68 @@
-DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE IF NOT EXISTS `accounts` (
-  `whitelist` tinyint(1) NOT NULL DEFAULT '0',
-  `chars` int(10) NOT NULL DEFAULT '1',
-  `gems` int(20) NOT NULL DEFAULT '0',
-  `premium` int(20) NOT NULL DEFAULT '0',
-  `priority` int(3) NOT NULL DEFAULT '0',
+  `whitelist` tinyint(1) NOT NULL DEFAULT 0,
+  `chars` int(10) NOT NULL DEFAULT 1,
+  `gems` int(20) NOT NULL DEFAULT 0,
+  `premium` int(20) NOT NULL DEFAULT 0,
+  `priority` int(3) NOT NULL DEFAULT 0,
   `discord` varchar(50) NOT NULL DEFAULT '0',
   `steam` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`steam`) USING BTREE,
   KEY `steam` (`steam`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `bank`;
-CREATE TABLE IF NOT EXISTS `bank` (
+CREATE TABLE IF NOT EXISTS `almirante_carry` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(20) NOT NULL DEFAULT '0',
-  `value` int(20) NOT NULL DEFAULT '0',
-  `mode` varchar(50) DEFAULT 'Private',
-  `owner` tinyint(1) NOT NULL DEFAULT '0',
+  `police` varchar(255) DEFAULT '0',
+  `nuser_id` int(11) NOT NULL DEFAULT 0,
+  `nuser_name` varchar(255) DEFAULT '0',
+  `date` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `banneds`;
+CREATE TABLE IF NOT EXISTS `almirante_prison` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `police` varchar(255) DEFAULT '0',
+  `nuser_id` int(11) NOT NULL DEFAULT 0,
+  `services` int(11) NOT NULL DEFAULT 0,
+  `fines` int(20) NOT NULL DEFAULT 0,
+  `text` longtext DEFAULT NULL,
+  `ongoingServices` int(11) NOT NULL DEFAULT 0,
+  `date` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+CREATE TABLE IF NOT EXISTS `almirante_wanted` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `police` varchar(255) DEFAULT '0',
+  `nuser_id` int(11) NOT NULL DEFAULT 0,
+  `nuser_name` varchar(50) DEFAULT 'Indigente',
+  `description` longtext DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `date` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+CREATE TABLE IF NOT EXISTS `bank` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(20) NOT NULL DEFAULT 0,
+  `value` int(20) NOT NULL DEFAULT 0,
+  `mode` varchar(50) DEFAULT 'Private',
+  `owner` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 CREATE TABLE IF NOT EXISTS `banneds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `steam` varchar(50) NOT NULL,
-  `time` int(20) NOT NULL DEFAULT '0',
+  `time` int(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `characters`;
 CREATE TABLE IF NOT EXISTS `characters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `steam` varchar(50) DEFAULT NULL,
@@ -41,139 +72,154 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `name2` varchar(50) DEFAULT 'Indigente',
   `locate` varchar(10) NOT NULL DEFAULT 'Sul',
   `sex` varchar(1) NOT NULL DEFAULT 'M',
-  `blood` int(1) NOT NULL DEFAULT '1',
-  `fines` int(20) NOT NULL DEFAULT '0',
-  `garage` int(3) NOT NULL DEFAULT '3',
-  `prison` int(11) NOT NULL DEFAULT '0',
-  `port` int(1) NOT NULL DEFAULT '0',
-  `deleted` int(1) NOT NULL DEFAULT '0',
+  `blood` int(1) NOT NULL DEFAULT 1,
+  `fines` int(20) NOT NULL DEFAULT 0,
+  `garage` int(3) NOT NULL DEFAULT 3,
+  `prison` int(11) NOT NULL DEFAULT 0,
+  `port` int(1) NOT NULL DEFAULT 0,
+  `deleted` int(1) NOT NULL DEFAULT 0,
+  `paypal` int(11) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `chests`;
 CREATE TABLE IF NOT EXISTS `chests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `weight` int(10) NOT NULL DEFAULT '0',
+  `weight` int(10) NOT NULL DEFAULT 0,
   `perm` varchar(50) NOT NULL,
-  `logs` int(1) NOT NULL DEFAULT '0',
+  `logs` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-INSERT INTO `chests` (`id`, `name`, `weight`, `perm`, `logs`) VALUES
-(1, 'State', 500, 'State', 1),
-(2, 'Corrections', 500, 'Corrections', 1),
-(3, 'Ranger', 500, 'Ranger', 1),
-(4, 'Lspd', 500, 'Lspd', 1),
-(5, 'Sheriff', 500, 'Sheriff', 1),
-(6, 'Paramedic', 250, 'Paramedic', 1),
-(7, 'Aztecas', 250, 'Aztecas', 0),
-(8, 'Bloods', 250, 'Bloods', 0),
-(9, 'Ballas', 250, 'Ballas', 0),
-(10, 'Vagos', 250, 'Vagos', 0),
-(11, 'Families', 250, 'Families', 0),
-(12, 'TheLost', 250, 'TheLost', 0),
-(13, 'Mechanic', 250, 'Mechanic', 0),
-(14, 'MotoClub', 250, 'MotoClub', 0),
-(15, 'Vanilla', 250, 'Vanilla', 0),
-(16, 'Triads', 250, 'Triads', 0),
-(17, 'Arcade', 250, 'Arcade', 0),
-(18, 'Desserts', 250, 'Desserts', 0),
-(19, 'Vinhedo', 250, 'Vinhedo', 0),
-(20, 'Playboy', 250, 'Playboy', 0),
-(21, 'EastSide', 250, 'EastSide', 0),
-(22, 'Salieris', 250, 'Salieris', 0),
-(23, 'trayShot', 10, 'trayShot', 0),
-(24, 'trayDesserts', 10, 'trayDesserts', 0),
-(25, 'trayPops', 10, 'trayPops', 0),
-(26, 'trayPizza', 10, 'trayPizza', 0);
-
-DROP TABLE IF EXISTS `entitydata`;
 CREATE TABLE IF NOT EXISTS `entitydata` (
   `dkey` varchar(100) NOT NULL,
-  `dvalue` text,
+  `dvalue` text DEFAULT NULL,
   PRIMARY KEY (`dkey`),
   KEY `dkey` (`dkey`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `fidentity`;
 CREATE TABLE IF NOT EXISTS `fidentity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT '',
   `name2` varchar(50) NOT NULL DEFAULT '',
   `locate` varchar(10) NOT NULL DEFAULT 'Sul',
-  `port` int(1) NOT NULL DEFAULT '1',
-  `blood` int(1) NOT NULL DEFAULT '1',
+  `port` int(1) NOT NULL DEFAULT 1,
+  `blood` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `playerdata`;
+CREATE TABLE IF NOT EXISTS `investments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL DEFAULT 0,
+  `Liquid` int(20) NOT NULL DEFAULT 0,
+  `Monthly` int(20) NOT NULL DEFAULT 0,
+  `Deposit` int(20) NOT NULL DEFAULT 0,
+  `Last` int(20) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `invoices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL DEFAULT 0,
+  `Received` int(10) NOT NULL DEFAULT 0,
+  `Type` varchar(50) NOT NULL,
+  `Reason` longtext NOT NULL,
+  `Holder` varchar(50) NOT NULL,
+  `Value` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE IF NOT EXISTS `playerdata` (
   `user_id` int(11) NOT NULL,
   `dkey` varchar(100) NOT NULL,
-  `dvalue` text,
+  `dvalue` text DEFAULT NULL,
   PRIMARY KEY (`user_id`,`dkey`),
   KEY `user_id` (`user_id`),
   KEY `dkey` (`dkey`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `prison`;
 CREATE TABLE IF NOT EXISTS `prison` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `police` varchar(255) DEFAULT '0',
-  `nuser_id` int(11) NOT NULL DEFAULT '0',
-  `services` int(11) NOT NULL DEFAULT '0',
-  `fines` int(20) NOT NULL DEFAULT '0',
-  `text` longtext,
-  `date` text,
+  `nuser_id` int(11) NOT NULL DEFAULT 0,
+  `services` int(11) NOT NULL DEFAULT 0,
+  `fines` int(20) NOT NULL DEFAULT 0,
+  `text` longtext DEFAULT NULL,
+  `date` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `propertys`;
 CREATE TABLE IF NOT EXISTS `propertys` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL DEFAULT 'Homes0001',
   `interior` varchar(50) NOT NULL DEFAULT 'Middle',
-  `tax` int(20) NOT NULL DEFAULT '0',
-  `user_id` int(11) NOT NULL DEFAULT '0',
-  `price` int(20) NOT NULL DEFAULT '0',
-  `residents` int(1) NOT NULL DEFAULT '1',
-  `vault` int(10) NOT NULL DEFAULT '1',
-  `fridge` int(10) NOT NULL DEFAULT '1',
-  `owner` int(1) NOT NULL DEFAULT '0',
+  `tax` int(20) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
+  `price` int(20) NOT NULL DEFAULT 0,
+  `residents` int(1) NOT NULL DEFAULT 1,
+  `vault` int(10) NOT NULL DEFAULT 1,
+  `fridge` int(10) NOT NULL DEFAULT 1,
+  `owner` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `races`;
 CREATE TABLE IF NOT EXISTS `races` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `raceid` int(3) NOT NULL DEFAULT '0',
-  `user_id` int(5) NOT NULL DEFAULT '0',
+  `raceid` int(3) NOT NULL DEFAULT 0,
+  `user_id` int(5) NOT NULL DEFAULT 0,
   `name` varchar(100) NOT NULL DEFAULT 'Individuo Indigente',
   `vehicle` varchar(50) NOT NULL DEFAULT 'Sultan RS',
-  `points` int(20) NOT NULL DEFAULT '0',
+  `points` int(20) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-DROP TABLE IF EXISTS `vehicles`;
+CREATE TABLE IF NOT EXISTS `taxs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL DEFAULT 0,
+  `Name` varchar(50) NOT NULL,
+  `Date` varchar(50) NOT NULL,
+  `Hour` varchar(50) NOT NULL,
+  `Value` int(11) NOT NULL,
+  `Message` longtext DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL DEFAULT 0,
+  `Type` varchar(50) NOT NULL,
+  `Date` varchar(50) NOT NULL,
+  `Value` int(11) NOT NULL,
+  `Balance` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47003 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 CREATE TABLE IF NOT EXISTS `vehicles` (
   `user_id` int(11) NOT NULL,
   `vehicle` varchar(100) NOT NULL,
-  `tax` int(20) NOT NULL DEFAULT '0',
+  `tax` int(20) NOT NULL DEFAULT 0,
   `plate` varchar(20) DEFAULT NULL,
-  `rental` int(20) NOT NULL DEFAULT '0',
-  `rendays` int(11) NOT NULL DEFAULT '0',
-  `arrest` int(20) NOT NULL DEFAULT '0',
-  `engine` int(4) NOT NULL DEFAULT '1000',
-  `body` int(4) NOT NULL DEFAULT '1000',
-  `fuel` int(3) NOT NULL DEFAULT '100',
-  `nitro` int(3) NOT NULL DEFAULT '0',
+  `rental` int(20) NOT NULL DEFAULT 0,
+  `rendays` int(11) NOT NULL DEFAULT 0,
+  `arrest` int(20) NOT NULL DEFAULT 0,
+  `engine` int(4) NOT NULL DEFAULT 1000,
+  `body` int(4) NOT NULL DEFAULT 1000,
+  `fuel` int(3) NOT NULL DEFAULT 100,
+  `nitro` int(3) NOT NULL DEFAULT 0,
   `work` varchar(5) NOT NULL DEFAULT 'false',
   `doors` varchar(254) NOT NULL,
   `windows` varchar(254) NOT NULL,
@@ -181,5 +227,4 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   PRIMARY KEY (`user_id`,`vehicle`),
   KEY `user_id` (`user_id`),
   KEY `vehicle` (`vehicle`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
