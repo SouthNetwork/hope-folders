@@ -78,7 +78,6 @@ AddEventHandler("inventory:Close",function()
 		Backpack = false
 		SetNuiFocus(false,false)
 		SetCursorLocation(0.5,0.5)
-		TriggerEvent("hud:Active",true)
 		SendNUIMessage({ action = "hideMenu" })
 	end
 end)
@@ -187,7 +186,6 @@ RegisterCommand("openBackpack",function(source,args,rawCommand)
 			Backpack = true
 			SetNuiFocus(true,true)
 			SetCursorLocation(0.5,0.5)
-			TriggerEvent("hud:Active",false)
 			SendNUIMessage({ action = "showMenu" })
 		end
 	end
