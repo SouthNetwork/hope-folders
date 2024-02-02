@@ -7,8 +7,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-Hensa = {}
-Tunnel.bindInterface("pause",Hensa)
+Hope = {}
+Tunnel.bindInterface("pause",Hope)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -76,19 +76,18 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HOME
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.Home()
+function Hope.Home()
     local source = source
     local Passport = vRP.getUserId(source)
     local Identity = vRP.userIdentity(Passport)
     if Identity then
         local Identities = vRP.getIdentities(source)
         local Account = vRP.infoAccount(Identities)
-		local Sanguine = "Sem Informação"
-		-- local Blood = "Inativo"
+		local Sanguine = bloodTypes or "Sem Informação"
 		if vRP.userPremium(Passport) then 
-            VIP = "VIP Ativo"
+            VIP = "Ativo"
         else
-            VIP = "VIP Inativo"
+            VIP = "Inativo"
         end
         local Home = {
             ["Information"] = {
@@ -99,7 +98,7 @@ function Hensa.Home()
                 ["Blood"] = VIP,
                 ["Phone"] = Identity["phone"] or "Chip não identificado",
                 ["Diamonds"] = Account["gems"] or 0,
-                ["Medic"] = ""
+                ["Medic"] = " "
             },
 
             ["Premium"] = PremiumRenew,
@@ -108,17 +107,14 @@ function Hensa.Home()
             ["Experience"] = getExperience(Passport),
             ["Box"] = Boxes[1]
         }
-
         return Home
-    -- end
 end
-
     return false
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DIAMONDSLIST
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.DiamondsList()
+function Hope.DiamondsList()
 	local DiamondsList = {}
 
 	for Number,v in pairs(ShopItens) do
@@ -137,7 +133,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DIAMONDSBUY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.DiamondsBuy(Item, Amount)
+function Hope.DiamondsBuy(Item, Amount)
 	local source = source
 	local Passport = vRP.getUserId(source)
 	if ShopItens[Item] then
@@ -156,7 +152,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- OPENBOXES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.OpenBoxes(Number)
+function Hope.OpenBoxes(Number)
 	local source = source
 	local Passport = vRP.getUserId(source)
 	if Number then
@@ -173,7 +169,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PAYMENTBOXES
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.PaymentBoxes(Number, Index)
+function Hope.PaymentBoxes(Number, Index)
 	local source = source
 	local Passport = vRP.getUserId(source)
 	if Passport then
@@ -191,7 +187,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DISCONNECT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Hensa.Disconnect()
+function Hope.Disconnect()
 	local source = source
 	local Passport = vRP.getUserId(source)
 	if Passport then

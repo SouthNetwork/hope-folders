@@ -66,8 +66,6 @@ window.addEventListener("load",function(){
 
 						<div class="identityLeft">Total de Gemas<br><r>${format(data["gemas"])}</div>
 						<div class="identityRight">Porte de Armas<br><r>${data["porte"] == 0 ? "Não":"Sim"}</div>
-
-						<div class="identityLeft">Premium<br><r>${data["premium"]}</div>
 					`);
 				} else {
 					$("#identityDiv").html(`

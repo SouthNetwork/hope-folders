@@ -5,13 +5,13 @@ Boxes = {
 	{
 		["Id"] = 1,
 		["Name"] = "Caixa de Dimas",
-		["Image"] = "http://34.95.182.132/HopeImages/Pause/diamantes.png",
+		["Image"] = "https://cdn.discordapp.com/attachments/1200542017894240407/1202982189927759953/diamantes.png?ex=65cf6f78&is=65bcfa78&hm=b8ced5e9990e084c1f1925f4f0d235d239dafb79f65c49a2f8ac729481c6b77d&",
 		["Price"] = 100,
 		["Discount"] = 0
 	},{
 		["Id"] = 2,
 		["Name"] = "Caixa de Platinas",
-		["Image"] = "http://34.95.182.132/HopeImages/Pause/platinas.png",
+		["Image"] = "https://cdn.discordapp.com/attachments/1200542017894240407/1202982189491429396/platinas.png?ex=65cf6f78&is=65bcfa78&hm=2370c1e5f1608d39039c342b93c8d21e63e615dc52afa2483355340a0fcc17e2&",
 		["Price"] = 250,
 		["Discount"] = 0
 	}

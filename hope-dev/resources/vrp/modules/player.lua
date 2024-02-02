@@ -364,8 +364,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VRP:EXPERIENCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterServerEvent("vRP:Experience")
-AddEventHandler("vRP:Experience",function(source,user_id,amount)
+function vRP.GetExperience(source,user_id,amount)
 	local dataTable = vRP.getDatatable(user_id)
 	if dataTable then
 		if dataTable["experience"] ~= nil then
@@ -376,7 +375,20 @@ AddEventHandler("vRP:Experience",function(source,user_id,amount)
 
 		TriggerClientEvent("hud:Exp",source,dataTable["experience"])
 	end
-end)
+end
+-- RegisterServerEvent("vRP:Experience")
+-- AddEventHandler("vRP:Experience",function(source,user_id,amount)
+-- 	local dataTable = vRP.getDatatable(user_id)
+-- 	if dataTable then
+-- 		if dataTable["experience"] ~= nil then
+-- 			dataTable["experience"] = dataTable["experience"] + parseInt(amount)
+-- 		else
+-- 			dataTable["experience"] = parseInt(amount)
+-- 		end
+
+-- 		TriggerClientEvent("hud:Exp",source,dataTable["experience"])
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SETARMOUR
 -----------------------------------------------------------------------------------------------------------------------------------------
