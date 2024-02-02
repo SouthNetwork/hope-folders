@@ -81,18 +81,22 @@ function Hensa.Home()
     local Passport = vRP.getUserId(source)
     local Identity = vRP.userIdentity(Passport)
     if Identity then
-		-- if Identity["premium"] > os.time() then
         local Identities = vRP.getIdentities(source)
         local Account = vRP.infoAccount(Identities)
 		local Sanguine = "Sem Informação"
-		local Blood = "Inativo"
+		-- local Blood = "Inativo"
+		if vRP.userPremium(Passport) then 
+            VIP = "VIP Ativo"
+        else
+            VIP = "VIP Inativo"
+        end
         local Home = {
             ["Information"] = {
                 ["Passport"] = Passport,
                 ["Name"] = Identity["name"].." "..Identity["name2"],
                 ["Bank"] = vRP.getBankMoney(Passport),
                 ["Sex"] = Identity["sex"],
-                ["Blood"] = Blood,
+                ["Blood"] = VIP,
                 ["Phone"] = Identity["phone"] or "Chip não identificado",
                 ["Diamonds"] = Account["gems"] or 0,
                 ["Medic"] = ""
@@ -106,8 +110,8 @@ function Hensa.Home()
         }
 
         return Home
-    end
--- end
+    -- end
+end
 
     return false
 end
