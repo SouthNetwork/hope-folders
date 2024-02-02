@@ -1,0 +1,18 @@
+{
+  "Sound": {
+    "ClientId": "zy0ijES9ACCAxntrQj4MN4wKRlluii0I",
+    "MaxResults": "25"
+  },
+
+  "Server": {
+    "Host": "34.95.182.132",
+    "Port": "3000"
+  },
+
+  "Database": {
+    "Host": "localhost",
+    "User": "root",
+    "Password": "",
+    "Database": "hope"
+  }
+}
