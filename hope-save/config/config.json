@@ -1,0 +1,10 @@
+{
+    "token":"MTIwMjIxMjAyNzY3MDczNjkxNg.GVjtKu.ZGUzrBCmjOAK6dMIA8LFf4oSE2ItJ_LvIS9pyM",
+    "dump": {
+        "cooldown": 1,
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "hope"
+    }
+}
