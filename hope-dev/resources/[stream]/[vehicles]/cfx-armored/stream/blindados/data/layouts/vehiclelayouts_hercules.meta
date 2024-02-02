@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CVehicleMetadataMgr>
+  <VehicleLayoutInfos>
+  
+  <Item type="CVehicleLayoutInfo">
+      <Name>LAYOUT_PLANE_C130</Name>
+      <Seats>
+		<!-- pilot -->
+        <Item>
+          <SeatInfo ref="SEAT_STANDARD_FRONT_LEFT" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_JET_FRONT_LEFT" />
+        </Item>
+		<!-- copilot -->
+        <Item>
+          <SeatInfo ref="SEAT_STANDARD_FRONT_RIGHT" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_JET_FRONT_RIGHT" />
+        </Item>
+		<!-- cockpit 3rd seat -->
+        <Item>
+          <SeatInfo ref="SEAT_STANDARD_NO_SHUFFLE_REAR_LEFT" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_LEFT" />
+        </Item>
+		<!-- rear ramp seat  -->
+        <Item>
+          <SeatInfo ref="SEAT_STANDARD_NO_SHUFFLE_REAR_RIGHT" />
+          <!-- <SeatAnimInfo ref="SEAT_ANIM_TRUCK_PHANTOMBULL_REAR" /> -->
+		  <SeatAnimInfo ref="SEAT_ANIM_HELI_RAMP" />
+        </Item>
+		<!-- driver r1 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_1" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_LEFT" />
+        </Item>
+		<!-- passenger r1 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_1" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_RIGHT" />
+        </Item>
+		<!-- driver r2 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_2" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_LEFT" />
+        </Item>
+		<!-- passenger r2 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_2" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_RIGHT" />
+        </Item>
+		<!-- driver r3 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_3" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_LEFT" />
+        </Item>
+		<!-- passenger r3 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_3" />
+          <SeatAnimInfo ref="SEAT_ANIM_PLANE_TITAN_RIGHT" />
+        </Item>
+		<!-- driver r4 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_4" />
+          <SeatAnimInfo ref="SEAT_ANIM_BUS_REAR_LEFT" />
+        </Item>
+		<!-- passenger r4 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_4" />
+          <SeatAnimInfo ref="SEAT_ANIM_BUS_REAR_RIGHT" />
+        </Item>
+		<!-- driver r5 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_5" />
+          <SeatAnimInfo ref="SEAT_ANIM_BUS_REAR_LEFT" />
+        </Item>
+		<!-- passenger r5 -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_5" />
+          <SeatAnimInfo ref="SEAT_ANIM_BUS_REAR_RIGHT" />
+        </Item>
+		<!-- driver r6 (window standing) -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_LEFT_6" />
+          <SeatAnimInfo ref="SEAT_ANIM_BOAT_PREDATOR_FRONT_RIGHT" />
+        </Item>
+		<!-- passenger r6 (window standing) -->
+        <Item>
+          <SeatInfo ref="SEAT_EXTRA_NO_SHUFFLE_RIGHT_6" />
+          <SeatAnimInfo ref="SEAT_ANIM_BOAT_PREDATOR_FRONT_RIGHT" />
+        </Item>
+      </Seats>
+      <EntryPoints>
+        <Item>
+          <EntryPointInfo ref="ENTRY_POINT_PLANE_TITAN_FRONT_LEFT" />
+          <EntryPointAnimInfo ref="ENTRY_POINT_ANIM_PLANE_TITAN_FRONT_LEFT" />
+        </Item>
+        <Item>
+          <EntryPointInfo ref="ENTRY_POINT_PLANE_TITAN_FRONT_RIGHT" />
+          <EntryPointAnimInfo ref="ENTRY_POINT_ANIM_PLANE_TITAN_FRONT_RIGHT" />
+        </Item>
+        <Item>
+          <EntryPointInfo ref="ENTRY_POINT_MP_JET_WARP_REAR_LEFT" />
+          <EntryPointAnimInfo ref="ENTRY_POINT_ANIM_PLANE_TITAN_REAR_LEFT" />
+        </Item>
+        <Item>
+          <EntryPointInfo ref="ENTRY_POINT_MP_JET_WARP_REAR_RIGHT" />
+          <EntryPointAnimInfo ref="ENTRY_POINT_ANIM_PLANE_TITAN_REAR_RIGHT" />
+        </Item>
+      </EntryPoints>
+      <LayoutFlags>StreamAnims DisableJackingAndBusting ClimbUpAfterOpenDoor UseFinerAlignTolerance IgnoreFrontSeatsWhenOnVehicle AllowEarlyDoorAndSeatUnreservation</LayoutFlags>
+      <BicycleInfo ref="NULL" />
+      <HandsUpClipSetId>busted_vehicle_std</HandsUpClipSetId>
+      <SteeringWheelOffset x="0.000000" y="0.350000" z="0.320000" />
+    </Item>
+  </VehicleLayoutInfos>
+  
+  <VehicleSeatAnimInfos>
+    <Item type="CVehicleSeatAnimInfo">
+      <Name>SEAT_ANIM_HELI_RAMP</Name>
+      <DriveByInfo ref="DRIVEBY_TRUCK_PHANTOMBULL_REAR" />
+      <InsideClipSetMap ref="INSIDE_CLIPSET_MAP_TRUCK_PHANTOMBULL_REAR" />
+      <PanicClipSet />
+      <AgitatedClipSet />
+      <DuckedClipSet />
+      <FemaleClipSet />
+      <LowriderLeanClipSet />
+      <AltLowriderLeanClipSet />
+      <LowLODIdleAnim>PHANTOMBULL_REAR_IDLE</LowLODIdleAnim>
+      <SeatAmbientContext />
+      <InVehicleMoveNetwork>VEHICLE_DEFAULT</InVehicleMoveNetwork>
+      <SeatAnimFlags>CannotBeJacked UseStandardInVehicleAnims PreventShuffleJack KeepCollisionOnWhenInVehicle</SeatAnimFlags>
+      <SteeringSmoothing value="0.050000" />
+      <ExitToAimInfoName />
+      <MaleGestureClipSetId />
+      <FemaleGestureClipSetId />
+      <FPSMinSteeringRateOverride value="-1.000000" />
+      <FPSMaxSteeringRateOverride value="-1.000000" />
+      <SeatCollisionBoundsOffset x="0.000000" y="0.000000" z="0.000000" />
+    </Item>
+  </VehicleSeatAnimInfos>
+  
+  
+  <!-- 
+  <Item type="CVehicleSeatAnimInfo">
+      <Name>SEAT_ANIM_PLANE_RAMP</Name>
+      <DriveByInfo ref="DRIVEBY_PLANE_RAMP" />
+      <InsideClipSetMap ref="INSIDE_CLIPSET_PLANE_RAMP" />
+      <PanicClipSet />
+      <AgitatedClipSet />
+      <DuckedClipSet />
+      <FemaleClipSet />
+      <LowriderLeanClipSet />
+      <AltLowriderLeanClipSet />
+      <LowLODIdleAnim>PHANTOMBULL_REAR_IDLE</LowLODIdleAnim>
+      <SeatAmbientContext />
+      <InVehicleMoveNetwork>VEHICLE_DEFAULT</InVehicleMoveNetwork>
+      <SeatAnimFlags>CanDetachViaRagdoll CannotBeJacked UseStandardInVehicleAnims PreventShuffleJack KeepCollisionOnWhenInVehicle</SeatAnimFlags>
+      <SteeringSmoothing value="0.050000" />
+      <ExitToAimInfoName />
+      <MaleGestureClipSetId />
+      <FemaleGestureClipSetId />
+      <FPSMinSteeringRateOverride value="-1.000000" />
+      <FPSMaxSteeringRateOverride value="-1.000000" />
+      <SeatCollisionBoundsOffset x="0.000000" y="0.000000" z="0.000000" />
+    </Item>
+  
+  </VehicleSeatAnimInfos>
+  
+  <VehicleDriveByInfos>
+   <Item type="CVehicleDriveByInfo">
+      <Name>DRIVEBY_PLANE_RAMP</Name>
+      <MinAimSweepHeadingAngleDegs value="-140.000000" />
+      <MaxAimSweepHeadingAngleDegs value="140.000000" />
+      <FirstPersonMinAimSweepHeadingAngleDegs value="-180.000000" />
+      <FirstPersonMaxAimSweepHeadingAngleDegs value="180.000000" />
+      <FirstPersonUnarmedMinAimSweepHeadingAngleDegs value="-180.000000" />
+      <FirstPersonUnarmedMaxAimSweepHeadingAngleDegs value="180.000000" />
+      <MinRestrictedAimSweepHeadingAngleDegs value="-155.000000" />
+      <MaxRestrictedAimSweepHeadingAngleDegs value="155.000000" />
+      <MinSmashWindowAngleDegs value="-180.000000" />
+      <MaxSmashWindowAngleDegs value="0.000000" />
+      <MinSmashWindowAngleFirstPersonDegs value="-180.000000" />
+      <MaxSmashWindowAngleFirstPersonDegs value="0.000000" />
+      <MaxSpeedParam value="0.500000" />
+      <MaxLongitudinalLeanBlendWeightDelta value="0.250000" />
+      <MaxLateralLeanBlendWeightDelta value="0.250000" />
+      <ApproachSpeedToWithinMaxBlendDelta value="1.000000" />
+      <SpineAdditiveBlendInDelay value="0.050000" />
+      <SpineAdditiveBlendInDurationStill value="0.150000" />
+      <SpineAdditiveBlendInDuration value="0.750000" />
+      <SpineAdditiveBlendOutDelay value="0.000000" />
+      <SpineAdditiveBlendOutDuration value="0.500000" />
+      <MinUnarmedDrivebyYawIfWindowRolledUp value="-3.140000" />
+      <MaxUnarmedDrivebyYawIfWindowRolledUp value="3.140000" />
+      <DriveByAnimInfos>
+        <Item ref="PLANE_RAMP_DB_ANIM_INFO_ONE_HANDED_REAR" />
+        <Item ref="PLANE_RAMP_DB_ANIM_INFO_TWO_HANDED_REAR" />
+        <Item ref="PLANE_RAMP_DB_ANIM_INFO_RPG_REAR" />
+        <Item ref="PLANE_RAMP_DB_ANIM_INFO_THROW_REAR" />
+      </DriveByAnimInfos>
+      <DriveByCamera />
+      <DriveByFlags>UseMountedProjectileTask LeftHandedUnarmedFirstPersonAnims</DriveByFlags>
+    </Item>
+  </VehicleDriveByInfos>
+  
+  
+  <VehicleDriveByAnimInfos>
+	<Item type="CVehicleDriveByAnimInfo">
+      <Name>PLANE_RAMP_DB_ANIM_INFO_ONE_HANDED_REAR</Name>
+      <WeaponGroup ref="DRIVEBY_BIKE_ONE_HANDED" />
+      <DriveByClipSet>anim@veh@drivebytruck@phantom2@_rb</DriveByClipSet>
+      <FirstPersonDriveByClipSet />
+      <AltFirstPersonDriveByClipSets />
+      <RestrictedDriveByClipSet />
+      <VehicleMeleeClipSet />
+      <FirstPersonVehicleMeleeClipSet />
+      <Network>REAR_HELI_DRIVEBY</Network>
+      <UseOverrideAngles value="false" />
+      <OverrideMinAimAngle value="0.000000" />
+      <OverrideMaxAimAngle value="0.000000" />
+      <OverrideMinRestrictedAimAngle value="0.000000" />
+      <OverrideMaxRestrictedAimAngle value="0.000000" />
+    </Item>
+    <Item type="CVehicleDriveByAnimInfo">
+      <Name>PLANE_RAMP_DB_ANIM_INFO_TWO_HANDED_REAR</Name>
+      <WeaponGroup ref="DRIVEBY_DEFAULT_TWO_HANDED" />
+      <DriveByClipSet>anim@veh@drivebytruck@phantom2@_rb_2h</DriveByClipSet>
+      <FirstPersonDriveByClipSet />
+      <AltFirstPersonDriveByClipSets />
+      <RestrictedDriveByClipSet />
+      <VehicleMeleeClipSet />
+      <FirstPersonVehicleMeleeClipSet />
+      <Network>REAR_HELI_DRIVEBY</Network>
+      <UseOverrideAngles value="false" />
+      <OverrideMinAimAngle value="0.000000" />
+      <OverrideMaxAimAngle value="0.000000" />
+      <OverrideMinRestrictedAimAngle value="0.000000" />
+      <OverrideMaxRestrictedAimAngle value="0.000000" />
+    </Item>
+    <Item type="CVehicleDriveByAnimInfo">
+      <Name>PLANE_RAMP_DB_ANIM_INFO_RPG_REAR</Name>
+      <WeaponGroup ref="DRIVEBY_HELI_RPG" />
+      <DriveByClipSet>anim@veh@drivebytruck@phantom2@_rb_rpg</DriveByClipSet>
+      <FirstPersonDriveByClipSet />
+      <AltFirstPersonDriveByClipSets />
+      <RestrictedDriveByClipSet />
+      <VehicleMeleeClipSet />
+      <FirstPersonVehicleMeleeClipSet />
+      <Network>REAR_HELI_DRIVEBY</Network>
+      <UseOverrideAngles value="false" />
+      <OverrideMinAimAngle value="0.000000" />
+      <OverrideMaxAimAngle value="0.000000" />
+      <OverrideMinRestrictedAimAngle value="0.000000" />
+      <OverrideMaxRestrictedAimAngle value="0.000000" />
+    </Item>
+    <Item type="CVehicleDriveByAnimInfo">
+      <Name>PLANE_RAMP_DB_ANIM_INFO_THROW_REAR</Name>
+      <WeaponGroup ref="DRIVEBY_MOUNTED_THROW" />
+      <DriveByClipSet>anim@veh@drivebytruck@phantom2@_rb_grenades</DriveByClipSet>
+      <FirstPersonDriveByClipSet>driveby@first_person@passenger_right_handed@throw</FirstPersonDriveByClipSet>
+      <AltFirstPersonDriveByClipSets />
+      <RestrictedDriveByClipSet />
+      <VehicleMeleeClipSet />
+      <FirstPersonVehicleMeleeClipSet />
+      <Network>MOUNTED_THROW</Network>
+      <UseOverrideAngles value="false" />
+      <OverrideMinAimAngle value="0.000000" />
+      <OverrideMaxAimAngle value="0.000000" />
+      <OverrideMinRestrictedAimAngle value="0.000000" />
+      <OverrideMaxRestrictedAimAngle value="0.000000" />
+    </Item>
+  </VehicleDriveByAnimInfos>
+  
+  <ClipSetMaps>
+    <Item type="CClipSetMap">
+      <Name>INSIDE_CLIPSET_PLANE_RAMP</Name>
+      <Maps>
+        <Item>
+          <ClipSetId>anim@veh@truck@phantom2@rear_back@base</ClipSetId>
+          <VarClipSetId>InsideVarClipSet</VarClipSetId>
+          <ConditionFlags />
+          <InformationFlags />
+        </Item>
+      </Maps>
+    </Item>
+  </ClipSetMaps>
+  -->
+  
+
+</CVehicleMetadataMgr>
