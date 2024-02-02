@@ -1,0 +1,99 @@
+{
+    "token": "",
+    "client": {
+        "bankLogo": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/fleeca_hand.png",
+        "tinderFlame": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/flame.png",
+        "tinderChat": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/chat.png",
+        "tinderHeart": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/heart.png",
+        "tinderUser": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/user.png",
+        "tinderRefuse": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/refuse.png",
+        "instagramLogo": "https://i.imgur.com/VgGVtp0.png",
+        "apps": {
+            "notes": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/notes.webp",
+            "settings": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/settings.webp",
+            "contacts": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/phone.webp",
+            "sms": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/sms.webp",
+            "gallery": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/gallery.webp",
+            "phone": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/phone.webp",
+            "facetime": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/facetime.webp",
+            "instagram": {
+                "name": "Instaban",
+                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/instagram.webp"
+            },
+            "minesweeper": {
+                "name": "Campo M.",
+                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/minado.webp"
+            },
+            "calculator": {
+                "name": "Calculadora",
+                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/calculator.webp"
+            },
+            "truco": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/truco.webp",
+            "yellowpages": {
+                "name": "Yellow P.",
+                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/yellowpages.webp"
+            },
+            "tinder": {
+                "name": "Tinder",
+                "icon": "https://i.imgur.com/huwExnN.png"
+            },
+            "whatsapp": {
+                "name": "Whatsapp",
+                "icon": "https://i.imgur.com/AOZBkL2.png"
+            },
+            "tor": {
+                "name": "Deep W.",
+                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/tor.webp"
+            },
+            "bank": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/fleeca.webp"
+        },
+        "bankType": "fleeca",
+        "uploadServer": "https://discord.com/api/webhooks/1196939103137177702/nv09l47p9FKOhT9xmVeDSvhVD5p3Ft8IAejVcHn3iNCRPN_NfvRr0OCZxRBzgm8DeN5W",
+        "allowUnsafeURL": true,
+        "videoServer": "ws://20.206.200.180:8080",
+        "case": "s9",
+        "isAndroid": true,
+        "useGameClock": true,
+        "phone_template": "XXX-XXX",
+        "backgroundURL": "https://i.imgur.com/WfaRv1a.jpg",
+        "disabledApps": [
+            "paypal",
+            "olx",
+            "twitter",
+            "casino",
+            "weazel"
+        ],
+        "ringSound": "https://cdn.discordapp.com/attachments/1176692934125568024/1185284487739879525/ring.ogg?ex=658f0d33&is=657c9833&hm=4cac3117703302e58239734b5640d8a967bfd6968eef9911fd00349f835439dc&",
+        "notificationSound": "https://cdn.discordapp.com/attachments/1176692934125568024/1185284487223984148/notification.ogg?ex=658f0d33&is=657c9833&hm=5267c42b2ef7388ef2ba4ee832a41c7884c5ae691e7eda2bf3bcc692cbaeaf63&"
+    },
+    "call_mode": "pma-voice",
+    "webhookURL": "https://discord.com/api/webhooks/1196939103137177702/nv09l47p9FKOhT9xmVeDSvhVD5p3Ft8IAejVcHn3iNCRPN_NfvRr0OCZxRBzgm8DeN5W",
+    "instagram_verify": "PERM_VERIFICADO",
+    "instagram_accounts": {
+        "*": 1,
+        "Premium": 2
+    },
+    "moderator": "Admin",
+    "item": "cellphone",
+    "services": [
+        {
+            "name": "Policia",
+            "number": "190",
+            "description": "Efetue um chamado aos Policiais",
+            "permission": "Police"
+        },
+        {
+            "name": "Paramédico",
+            "number": "192",
+            "description": "Efetue um chamado aos Paramédicos",
+            "permission": "Paramedic"
+        },
+        {
+            "name": "Taxi",
+            "number": "100",
+            "description": "Efetue um chamado aos Taxistas",
+            "permission": "Taxi"
+        }
+    ],
+    "base": "creative_v5"
+}
