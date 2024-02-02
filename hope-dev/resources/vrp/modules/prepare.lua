@@ -27,6 +27,40 @@ vRP.prepare("bank/newAccount","INSERT INTO bank(user_id,value,mode,owner) VALUES
 vRP.prepare("bank/addValue","UPDATE bank SET value = value + @value WHERE user_id = @user_id AND mode = @mode AND owner = 1")
 vRP.prepare("bank/remValue","UPDATE bank SET value = value - @value WHERE user_id = @user_id AND mode = @mode AND owner = 1")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- TAXS
+-----------------------------------------------------------------------------------------------------------------------------------------
+vRP.prepare("taxs/List","SELECT * FROM taxs WHERE user_id = @user_id")
+vRP.prepare("taxs/Remove","DELETE FROM taxs WHERE user_id = @user_id AND id = @id")
+vRP.prepare("taxs/Check","SELECT * FROM taxs WHERE user_id = @user_id AND id = @id")
+vRP.prepare("taxs/Add","INSERT INTO taxs(user_id,Name,Date,Hour,Value,Message) VALUES(@user_id,@Name,@Date,@Hour,@Value,@Message)")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TRANSACTIONS
+-----------------------------------------------------------------------------------------------------------------------------------------
+vRP.prepare("transactions/List","SELECT * FROM transactions WHERE user_id = @user_id ORDER BY id DESC LIMIT @Limit")
+vRP.prepare("transactions/Add","INSERT INTO transactions(user_id,Type,Date,Value,Balance) VALUES(@user_id,@Type,@Date,@Value,@Balance)")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- DEPENDENTS
+-----------------------------------------------------------------------------------------------------------------------------------------
+vRP.prepare("dependents/List","SELECT * FROM dependents WHERE user_id = @user_id")
+vRP.prepare("dependents/Remove","DELETE FROM dependents WHERE user_id = @user_id AND Dependent = @Dependent")
+vRP.prepare("dependents/Check","SELECT * FROM dependents WHERE user_id = @user_id AND Dependent = @Dependent")
+vRP.prepare("dependents/Add","INSERT INTO dependents(user_id,Dependent,Name) VALUES(@user_id,@Dependent,@Name)")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVOICES
+-----------------------------------------------------------------------------------------------------------------------------------------
+vRP.prepare("invoices/Remove","DELETE FROM invoices WHERE id = @id")
+vRP.prepare("invoices/Check","SELECT * FROM invoices WHERE id = @id")
+vRP.prepare("invoices/List","SELECT * FROM invoices WHERE user_id = @user_id")
+vRP.prepare("invoices/Add","INSERT INTO invoices(user_id,Received,Type,Reason,Holder,Value) VALUES(@user_id,@Received,@Type,@Reason,@Holder,@Value)")
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- INVESTMENTS
+-----------------------------------------------------------------------------------------------------------------------------------------
+vRP.prepare("investments/Remove","DELETE FROM investments WHERE user_id = @user_id")
+vRP.prepare("investments/Check","SELECT * FROM investments WHERE user_id = @user_id")
+vRP.prepare("investments/Add","INSERT INTO investments(user_id,Deposit,Last) VALUES(@user_id,@Deposit,UNIX_TIMESTAMP() + 86400)")
+vRP.prepare("investments/Invest","UPDATE investments SET Deposit = Deposit + @Value, Last = UNIX_TIMESTAMP() + 86400 WHERE user_id = @user_id")
+vRP.prepare("investments/Actives","UPDATE investments SET Monthly = Monthly + FLOOR((Deposit + Liquid) * 0.10), Liquid = Liquid + FLOOR((Deposit + Liquid) * 0.025), Last = UNIX_TIMESTAMP() + 86400 WHERE Last < UNIX_TIMESTAMP()")
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- ACCOUNTS
 -----------------------------------------------------------------------------------------------------------------------------------------
 vRP.prepare("accounts/getInfos","SELECT * FROM accounts WHERE steam = @steam")
