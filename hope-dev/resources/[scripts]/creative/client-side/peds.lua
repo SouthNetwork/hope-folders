@@ -140,51 +140,6 @@ local pedList = {
 		model = { 0x3293B9CE,"mp_f_boatstaff_01" },
 		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
 	},
-	{ -- Salary
-		distance = 30,
-		coords = { -110.16,6468.93,31.63,133.23 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { -111.21,6469.98,31.63,133.23 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { -112.25,6471.08,31.63,133.23 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 254.05,222.73,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 252.26,223.39,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 248.95,224.59,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 247.15,225.25,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 243.82,226.46,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
-	{ -- Salary
-		distance = 30,
-		coords = { 242.02,227.11,106.30,158.75 },
-		model = { 0x5D71A46F,"s_f_y_airhostess_01" }
-	},
 	{ -- Prefeitura
 		distance = 30,
 		coords = { -544.78,-185.86,52.2,300.48 },
