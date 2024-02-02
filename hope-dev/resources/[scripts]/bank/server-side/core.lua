@@ -7,8 +7,8 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECTION
 -----------------------------------------------------------------------------------------------------------------------------------------
-Bah = {}
-Tunnel.bindInterface("bank",Bah)
+Hope = {}
+Tunnel.bindInterface("bank",Hope)
 vCLIENT = Tunnel.getInterface("bank")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
@@ -16,9 +16,20 @@ vCLIENT = Tunnel.getInterface("bank")
 local Active = {}
 local yield = 0
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- GETNAME
+-----------------------------------------------------------------------------------------------------------------------------------------
+function Hope.GetName()
+	local source = source
+	local user_id = vRP.getUserId(source)
+	local Identity = vRP.userIdentity(user_id)
+	if Identity then
+		return Identity["name"].." "..Identity["name2"]
+	end
+end
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VERIFY
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.verifyBank()
+function Hope.verifyBank()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -46,7 +57,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- HOME
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Home()
+function Hope.Home()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -68,13 +79,13 @@ function Bah.Home()
   CreateThread(function()
 	while true do
 		Wait(1)
-		Bah.Home()
+		Hope.Home()
 	end
   end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TRANSACTIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.TransactionHistory()
+function Hope.TransactionHistory()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -84,7 +95,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- BANKDEPOSIT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Deposit(amount)
+function Hope.Deposit(amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id and Active[user_id] == nil and parseInt(amount) > 0 then
@@ -109,7 +120,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- BANWITHDRAW
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Withdraw(amount)
+function Hope.Withdraw(amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id and Active[user_id] == nil and parseInt(amount) > 0 then
@@ -125,7 +136,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TRANSFERENCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Transfer(ClosestPed,amount)
+function Hope.Transfer(ClosestPed,amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id and Active[user_id] == nil and parseInt(amount) > 0 then
@@ -188,7 +199,7 @@ function Taxs(user_id)
 	return taxs
 end
 
-function Bah.TaxList()
+function Hope.TaxList()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -198,7 +209,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TRANSFERENCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.TaxPayment(id)
+function Hope.TaxPayment(id)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	local id = id
@@ -238,7 +249,7 @@ function Invoices(user_id)
 	return invoices
 end
 
-function Bah.InvoiceList()
+function Hope.InvoiceList()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -248,7 +259,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TRANSFERENCE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.InvoicePayment(id)
+function Hope.InvoicePayment(id)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	local id = id
@@ -269,7 +280,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MAKEINVOICE
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.MakeInvoice(nuser_id, value, reason)
+function Hope.MakeInvoice(nuser_id, value, reason)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	local nuser_id = nuser_id
@@ -297,7 +308,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 --  INVESTMENTS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Investments()
+function Hope.Investments()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -326,7 +337,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ADD INVESTMENT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.Invest(amount)
+function Hope.Invest(amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id and not Active[user_id] and parseInt(amount) > 0 then
@@ -350,7 +361,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REM INVESTMENT
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Bah.InvestRescue()
+function Hope.InvestRescue()
     local source = source
     local user_id = vRP.getUserId(source)
     

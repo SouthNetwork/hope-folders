@@ -9,13 +9,13 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 vSERVER = Tunnel.getInterface("bank")
 -----------------------------------------------------------------------------------------------------------------------------------------
--- BANK
+-- BANK:OPENSYSTEM
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterNetEvent("Bank")
-AddEventHandler("Bank",function()
+RegisterNetEvent("bank:openSystem")
+AddEventHandler("bank:openSystem",function()
 	if vSERVER.verifyBank() then
 		SetNuiFocus(true,true)
-		SendNUIMessage({ Action = "Open", name = LocalPlayer["state"]["Name"] })
+		SendNUIMessage({ Action = "Open", name = vSERVER.GetName() })
 		vRP.playAnim(false,{"amb@prop_human_atm@male@idle_a","idle_a"},false)
 	end
 end)
