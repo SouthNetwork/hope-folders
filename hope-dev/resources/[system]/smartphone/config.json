@@ -9,16 +9,16 @@
         "tinderRefuse": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/stock/tinder/refuse.png",
         "instagramLogo": "https://i.imgur.com/VgGVtp0.png",
         "apps": {
-            "notes": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/notes.webp",
-            "settings": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/settings.webp",
-            "contacts": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/phone.webp",
-            "sms": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/sms.webp",
-            "gallery": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/gallery.webp",
-            "phone": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/phone.webp",
+            "notes": "https://i.imgur.com/eN2fuZG.png",
+            "settings": "https://i.imgur.com/KobufWm.png",
+            "contacts": "https://i.imgur.com/Atmnx8Z.png",
+            "sms": "https://i.imgur.com/BJ8vzzf.png",
+            "gallery": "https://i.imgur.com/oDn2jFb.png",
+            "phone": "https://i.imgur.com/Atmnx8Z.png",
             "facetime": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/facetime.webp",
             "instagram": {
                 "name": "Instaban",
-                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/instagram.webp"
+                "icon": "https://i.imgur.com/XphhnZl.png"
             },
             "minesweeper": {
                 "name": "Campo M.",
@@ -26,12 +26,12 @@
             },
             "calculator": {
                 "name": "Calculadora",
-                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/calculator.webp"
+                "icon": "https://i.imgur.com/hqxVdpZ.png"
             },
             "truco": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/truco.webp",
             "yellowpages": {
                 "name": "Yellow P.",
-                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/yellowpages.webp"
+                "icon": "https://i.imgur.com/UeogJCs.png"
             },
             "tinder": {
                 "name": "Tinder",
@@ -43,9 +43,9 @@
             },
             "tor": {
                 "name": "Deep W.",
-                "icon": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/tor.webp"
+                "icon": "https://i.imgur.com/Twg6jAd.png"
             },
-            "bank": "https://cdn-shield.squareweb.app/host-page/smartphone-fivem/imagens2/default/fleeca.webp"
+            "bank": "https://i.imgur.com/zmBqeWc.png"
         },
         "bankType": "fleeca",
         "uploadServer": "https://discord.com/api/webhooks/1196939103137177702/nv09l47p9FKOhT9xmVeDSvhVD5p3Ft8IAejVcHn3iNCRPN_NfvRr0OCZxRBzgm8DeN5W",
@@ -55,7 +55,7 @@
         "isAndroid": true,
         "useGameClock": true,
         "phone_template": "XXX-XXX",
-        "backgroundURL": "https://i.imgur.com/WfaRv1a.jpg",
+        "backgroundURL": "https://i.imgur.com/cLszoXJ.jpg",
         "disabledApps": [
             "paypal",
             "olx",
