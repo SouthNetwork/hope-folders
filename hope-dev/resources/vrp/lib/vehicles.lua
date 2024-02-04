@@ -1,891 +1,6716 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
--- VEHGLOBAL
+-- LIST
 -----------------------------------------------------------------------------------------------------------------------------------------
-local vehglobal = {
-	["dinghy"] = { "Dinghy",0,2000,"work",0 },
-	["dinghy2"] = { "Dinghy 2",40,100,nil,0 },
-	["dinghy3"] = { "Dinghy 3",40,100,nil,0 },
-	["dinghy4"] = { "Dinghy 4",40,100,nil,0 },
-	["jetmax"] = { "Jetmax",0,2000,"work",0 },
-	["marquis"] = { "Marquis",0,2000,"work",0 },
-	["seashark"] = { "Seashark",0,2000,"work",0 },
-	["seashark2"] = { "Seashark 2",40,100,nil,0 },
-	["seashark3"] = { "Seashark 3",40,100,nil,0 },
-	["speeder"] = { "Speeder",0,2000,"work",0 },
-	["speeder2"] = { "Speeder 2",40,100,nil,0 },
-	["squalo"] = { "Squalo",0,2000,"work",0 },
-	["submersible"] = { "Submersible",40,100,nil,0 },
-	["submersible2"] = { "Submersible 2",40,100,nil,0 },
-	["suntrap"] = { "Suntrap",0,2000,"work",0 },
-	["toro"] = { "Toro",0,2000,"work",0 },
-	["toro2"] = { "Toro 2",40,100,nil,0 },
-	["tropic"] = { "Tropic",0,2000,"work",0 },
-	["tropic2"] = { "Tropic 2",40,100,nil,0 },
-	["tug"] = { "Tug",40,100,nil,0 },
-	["benson"] = { "Benson",300,75000,"rental",75 },
-	["biff"] = { "Biff",40,100,nil,0 },
-	["cerberus"] = { "Cerberus",40,100,nil,0 },
-	["cerberus2"] = { "Cerberus 2",40,100,nil,0 },
-	["cerberus3"] = { "Cerberus 3",40,100,nil,0 },
-	["hauler"] = { "Hauler",40,100,nil,0 },
-	["hauler2"] = { "Hauler 2",40,100,nil,0 },
-	["mule"] = { "Mule",200,50000,"rental",50 },
-	["mule2"] = { "Mule 2",40,100,nil,0 },
-	["mule3"] = { "Mule 3",40,100,nil,0 },
-	["mule4"] = { "Mule 4",40,100,nil,0 },
-	["packer"] = { "Packer",0,500,nil,0 },
-	["phantom"] = { "Phantom",40,100,nil,0 },
-	["phantom2"] = { "Phantom 2",40,100,nil,0 },
-	["phantom3"] = { "Phantom 3",40,100,nil,0 },
-	["pounder"] = { "Pounder",400,100000,"rental",100 },
-	["pounder2"] = { "Pounder 2",40,100,nil,0 },
-	["stockade"] = { "Stockade",40,1000,"work",0 },
-	["stockade3"] = { "Stockade 3",40,100,nil,0 },
-	["terbyte"] = { "Terbyte",40,100,nil,0 },
-	["blista"] = { "Blista",20,30000,"cars",0 },
-	["brioso"] = { "Brioso",20,30000,"cars",0 },
-	["dilettante"] = { "Dilettante",30,50000,"cars",0 },
-	["dilettante2"] = { "Dilettante 2",40,100,nil,0 },
-	["issi2"] = { "Issi 2",25,50000,"cars",0 },
-	["issi3"] = { "Issi 3",35,90000,"cars",0 },
-	["issi4"] = { "Issi 4",40,100,nil,0 },
-	["issi5"] = { "Issi 5",40,100,nil,0 },
-	["issi6"] = { "Issi 6",40,100,nil,0 },
-	["panto"] = { "Panto",20,24000,"cars",0 },
-	["prairie"] = { "Prairie",15,20000,"cars",0 },
-	["rhapsody"] = { "Rhapsody",15,10000,"cars",0 },
-	["cogcabrio"] = { "Cogcabrio",50,90000,"cars",0 },
-	["exemplar"] = { "Exemplar",20,90000,"cars",0 },
-	["f620"] = { "F620",30,64000,"cars",0 },
-	["felon"] = { "Felon",30,70000,"cars",0 },
-	["felon2"] = { "Felon 2",35,70000,"cars",0 },
-	["jackal"] = { "Jackal",30,110000,"cars",0 },
-	["oracle"] = { "Oracle",30,50000,"cars",0 },
-	["oracle2"] = { "Oracle 2",40,70000,"cars",0 },
-	["sentinel"] = { "Sentinel",30,50000,"cars",0 },
-	["sentinel2"] = { "Sentinel 2",35,70000,"cars",0 },
-	["windsor"] = { "Windsor",30,90000,"cars",0 },
-	["windsor2"] = { "Windsor 2",40,110000,"cars",0 },
-	["zion"] = { "Zion",30,70000,"cars",0 },
-	["zion2"] = { "Zion 2",35,90000,"cars",0 },
-	["bmx"] = { "Bmx",0,1000,"work",0 },
-	["cruiser"] = { "Cruiser",0,1000,"work",0 },
-	["fixter"] = { "Fixter",0,1000,"work",0 },
-	["scorcher"] = { "Scorcher",0,1000,"work",0 },
-	["tribike"] = { "Tribike",0,1000,"work",0 },
-	["tribike2"] = { "Tribike 2",0,1000,"work",0 },
-	["tribike3"] = { "Tribike 3",0,1000,"work",0 },
-	["ambulance2"] = { "Ambulance 2",10,1000,"work",0 },
-	["hondanc700"] = { "Honda NC700",0,1000,"work",0 },
-	["pranger"] = { "Pranger",40,100,nil,0 },
-	["predator"] = { "Predator",40,100,nil,0 },
-	["riot"] = { "Riot",0,1000,"work",0 },
-	["riot2"] = { "Riot 2",40,100,nil,0 },
-	["sheriff"] = { "Sheriff",40,100,nil,0 },
-	["sheriff2"] = { "Sheriff 2",40,100,nil,0 },
-	["akula"] = { "Akula",40,100,nil,0 },
-	["annihilator"] = { "Annihilator",40,100,nil,0 },
-	["buzzard"] = { "Buzzard",40,100,nil,0 },
-	["buzzard2"] = { "Buzzard 2",0,2000,nil,0 },
-	["cargobob"] = { "Cargobob",40,100,nil,0 },
-	["cargobob2"] = { "Cargobob 2",40,100,nil,0 },
-	["cargobob3"] = { "Cargobob 3",40,100,nil,0 },
-	["cargobob4"] = { "Cargobob 4",40,100,nil,0 },
-	["frogger"] = { "Frogger",0,2000,nil,0 },
-	["frogger2"] = { "Frogger 2",40,100,nil,0 },
-	["havok"] = { "Havok",0,2000,nil,0 },
-	["hunter"] = { "Hunter",40,100,nil,0 },
-	["maverick"] = { "Maverick",0,2000,nil,0 },
-	["maverick2"] = { "Maverick 2",0,4000,"work",0 },
-	["savage"] = { "Savage",40,100,nil,0 },
-	["seasparrow"] = { "Seasparrow",40,100,nil,0 },
-	["skylift"] = { "Skylift",40,100,nil,0 },
-	["supervolito"] = { "Supervolito",0,2000,nil,0 },
-	["supervolito2"] = { "Supervolito 2",40,100,nil,0 },
-	["swift"] = { "Swift",0,2000,nil,0 },
-	["swift2"] = { "Swift 2",0,2000,nil,0 },
-	["valkyrie"] = { "Valkyrie",40,100,nil,0 },
-	["valkyrie2"] = { "Valkyrie 2",40,100,nil,0 },
-	["volatus"] = { "Volatus",0,2000,nil,0 },
-	["bulldozer"] = { "Bulldozer",40,100,nil,0 },
-	["cutter"] = { "Cutter",40,100,nil,0 },
-	["dump"] = { "Dump",40,100,nil,0 },
-	["flatbed"] = { "Flatbed",0,1000,"work",0 },
-	["guardian"] = { "Guardian",50,310000,"cars",0 },
-	["handler"] = { "Handler",40,100,nil,0 },
-	["mixer"] = { "Mixer",40,100,nil,0 },
-	["mixer2"] = { "Mixer 2",40,100,nil,0 },
-	["rubble"] = { "Rubble",40,100,nil,0 },
-	["tiptruck"] = { "Tiptruck",40,100,nil,0 },
-	["tiptruck2"] = { "Tiptruck 2",40,100,nil,0 },
-	["apc"] = { "Apc",40,100,nil,0 },
-	["barracks"] = { "Barracks",40,100,nil,0 },
-	["barracks2"] = { "Barracks 2",40,100,nil,0 },
-	["barracks3"] = { "Barracks 3",40,100,nil,0 },
-	["barrage"] = { "Barrage",40,100,nil,0 },
-	["chernobog"] = { "Chernobog",40,100,nil,0 },
-	["crusader"] = { "Crusader",40,100,nil,0 },
-	["halftrack"] = { "Halftrack",40,100,nil,0 },
-	["khanjali"] = { "Khanjali",40,100,nil,0 },
-	["rhino"] = { "Rhino",40,100,nil,0 },
-	["scarab"] = { "Scarab",40,100,nil,0 },
-	["scarab2"] = { "Scarab 2",40,100,nil,0 },
-	["scarab3"] = { "Scarab 3",40,100,nil,0 },
-	["thruster"] = { "Thruster",40,100,nil,0 },
-	["trailersmall2"] = { "Trailersmall 2",40,100,nil,0 },
-	["akuma"] = { "Akuma",20,350000,"bikes",0 },
-	["avarus"] = { "Avarus",20,190000,"bikes",0 },
-	["bagger"] = { "Bagger",20,190000,"bikes",0 },
-	["bati"] = { "Bati",20,310000,"bikes",0 },
-	["bati2"] = { "Bati 2",20,330000,"bikes",0 },
-	["bf400"] = { "Bf400",20,330000,"bikes",0 },
-	["carbonrs"] = { "Carbon RS",20,210000,"bikes",0 },
-	["chimera"] = { "Chimera",20,170000,"bikes",0 },
-	["cliffhanger"] = { "Cliffhanger",20,270000,"bikes",0 },
-	["daemon"] = { "Daemon",20,190000,"bikes",0 },
-	["daemon2"] = { "Daemon 2",20,190000,"bikes",0 },
-	["defiler"] = { "Defiler",20,290000,"bikes",0 },
-	["deathbike"] = { "Deathbike",40,100,nil,0 },
-	["deathbike2"] = { "Deathbike 2",20,65000,nil,0 },
-	["deathbike3"] = { "Deathbike 3",20,65000,nil,0 },
-	["diablous"] = { "Diablous",20,210000,"bikes",0 },
-	["diablous2"] = { "Diablous 2",20,210000,"bikes",0 },
-	["double"] = { "Double",20,310000,"bikes",0 },
-	["enduro"] = { "Enduro",20,170000,"bikes",0 },
-	["esskey"] = { "Esskey",20,190000,"bikes",0 },
-	["faggio"] = { "Faggio",10,2000,"bikes",0 },
-	["faggio2"] = { "Faggio 2",10,2000,"bikes",0 },
-	["faggio3"] = { "Faggio 3",10,2000,"bikes",0 },
-	["fcr"] = { "Fcr",20,190000,"bikes",0 },
-	["fcr2"] = { "Fcr 2",20,190000,"bikes",0 },
-	["gargoyle"] = { "Gargoyle",20,210000,"bikes",0 },
-	["hakuchou"] = { "Hakuchou",20,310000,"bikes",0 },
-	["hakuchou2"] = { "Hakuchou 2",20,350000,"bikes",0 },
-	["hexer"] = { "Hexer",20,210000,"bikes",0 },
-	["innovation"] = { "Innovation",20,230000,"bikes",0 },
-	["lectro"] = { "Lectro",20,230000,"bikes",0 },
-	["manchez"] = { "Manchez",20,190000,"bikes",0 },
-	["nemesis"] = { "Nemesis",20,170000,"bikes",0 },
-	["nightblade"] = { "Nightblade",20,230000,"bikes",0 },
-	["oppressor"] = { "Oppressor",20,130000,nil,0 },
-	["oppressor2"] = { "Oppressor 2",20,130000,nil,0 },
-	["pcj"] = { "Pcj",20,170000,"bikes",0 },
-	["ratbike"] = { "Ratbike",20,130000,nil,0 },
-	["ruffian"] = { "Ruffian",20,210000,"bikes",0 },
-	["sanchez"] = { "Sanchez",15,190000,"bikes",0 },
-	["sanchez2"] = { "Sanchez 2",15,190000,"bikes",0 },
-	["sanctus"] = { "Sanctus",20,190000,"bikes",0 },
-	["shotaro"] = { "Shotaro",20,130000,nil,0 },
-	["sovereign"] = { "Sovereign",20,250000,nil,0 },
-	["thrust"] = { "Thrust",20,190000,"bikes",0 },
-	["vader"] = { "Vader",20,190000,"bikes",0 },
-	["vindicator"] = { "Vindicator",20,210000,"bikes",0 },
-	["vortex"] = { "Vortex",20,210000,"bikes",0 },
-	["wolfsbane"] = { "Wolfsbane",20,210000,"bikes",0 },
-	["zombiea"] = { "Zombie A",20,210000,"bikes",0 },
-	["zombieb"] = { "Zombie B",20,210000,"bikes",0 },
-	["blade"] = { "Blade",55,150000,"cars",0 },
-	["buccaneer"] = { "Buccaneer",30,50000,"cars",0 },
-	["buccaneer2"] = { "Buccaneer 2",35,70000,"cars",0 },
-	["chino"] = { "Chino",40,90000,"cars",0 },
-	["chino2"] = { "Chino 2",45,90000,"cars",0 },
-	["clique"] = { "Clique",35,130000,"cars",0 },
-	["coquette3"] = { "Coquette 3",40,210000,"cars",0 },
-	["deviant"] = { "Deviant",50,170000,"cars",0 },
-	["dominator"] = { "Dominator",50,130000,"cars",0 },
-	["dominator2"] = { "Dominator 2",50,130000,"cars",0 },
-	["dominator3"] = { "Dominator 3",30,170000,"cars",0 },
-	["dominator4"] = { "Dominator 4",40,100,nil,0 },
-	["dominator5"] = { "Dominator 5",40,100,nil,0 },
-	["dominator6"] = { "Dominator 6",40,100,nil,0 },
-	["dukes"] = { "Dukes",40,110000,"cars",0 },
-	["dukes2"] = { "Dukes 2",40,100,nil,0 },
-	["faction"] = { "Faction",50,110000,"cars",0 },
-	["faction2"] = { "Faction 2",40,110000,"cars",0 },
-	["faction3"] = { "Faction 3",50,110000,"cars",0 },
-	["ellie"] = { "Ellie",50,170000,"cars",0 },
-	["gauntlet"] = { "Gauntlet",40,90000,"cars",0 },
-	["gauntlet2"] = { "Gauntlet 2",40,100,nil,0 },
-	["hermes"] = { "Hermes",40,150000,"cars",0 },
-	["hotknife"] = { "Hotknife",30,150000,"cars",0 },
-	["hustler"] = { "Hustler",40,130000,"cars",0 },
-	["impaler"] = { "Impaler",50,150000,"cars",0 },
-	["impaler2"] = { "Impaler 2",40,100,nil,0 },
-	["impaler3"] = { "Impaler 3",40,100,nil,0 },
-	["impaler4"] = { "Impaler 4",40,100,nil,0 },
-	["imperator"] = { "Imperator",40,100,nil,0 },
-	["imperator2"] = { "Imperator 2",40,100,nil,0 },
-	["imperator3"] = { "Imperator 3",40,100,nil,0 },
-	["lurcher"] = { "Lurcher",40,100,nil,0 },
-	["moonbeam"] = { "Moonbeam",50,150000,"cars",0 },
-	["moonbeam2"] = { "Moonbeam 2",40,150000,"cars",0 },
-	["nightshade"] = { "Nightshade",30,170000,"cars",0 },
-	["phoenix"] = { "Phoenix",40,100,nil,0 },
-	["picador"] = { "Picador",50,170000,"cars",0 },
-	["ratloader"] = { "Ratloader",40,1000,"work",0 },
-	["ratloader2"] = { "Ratloader 2",40,130000,"cars",0 },
-	["ruiner"] = { "Ruiner",50,110000,"cars",0 },
-	["ruiner2"] = { "Ruiner 2",40,100,nil,0 },
-	["ruiner3"] = { "Ruiner 3",40,100,nil,0 },
-	["sabregt"] = { "Sabre GT",45,90000,"cars",0 },
-	["sabregt2"] = { "Sabregt 2",50,90000,"cars",0 },
-	["slamvan"] = { "Slamvan",50,130000,"cars",0 },
-	["slamvan2"] = { "Slamvan 2",50,130000,"cars",0 },
-	["slamvan3"] = { "Slamvan 3",40,150000,"cars",0 },
-	["slamvan4"] = { "Slamvan 4",40,100,nil,0 },
-	["slamvan5"] = { "Slamvan 5",40,100,nil,0 },
-	["slamvan6"] = { "Slamvan 6",40,100,nil,0 },
-	["stalion"] = { "Stalion",30,110000,"cars",0 },
-	["stalion2"] = { "Stalion 2",30,110000,"cars",0 },
-	["tampa"] = { "Tampa",40,130000,"cars",0 },
-	["tampa3"] = { "Tampa 3",40,100,nil,0 },
-	["tulip"] = { "Tulip",50,150000,"cars",0 },
-	["vamos"] = { "Vamos",50,170000,"cars",0 },
-	["vigero"] = { "Vigero",30,90000,"cars",0 },
-	["virgo"] = { "Virgo",50,90000,"cars",0 },
-	["virgo2"] = { "Virgo 2",50,90000,"cars",0 },
-	["virgo3"] = { "Virgo 3",50,110000,"cars",0 },
-	["voodoo"] = { "Voodoo",45,90000,"cars",0 },
-	["voodoo2"] = { "Voodoo 2",25,90000,"cars",0 },
-	["yosemite"] = { "Yosemite",50,150000,"cars",0 },
-	["bfinjection"] = { "Bfinjection",20,70000,"cars",0 },
-	["bifta"] = { "Bifta",20,90000,"cars",0 },
-	["blazer"] = { "Blazer",10,150000,"cars",0 },
-	["blazer2"] = { "Blazer 2",0,1000,"work",0 },
-	["blazer3"] = { "Blazer 3",10,150000,"cars",0 },
-	["blazer4"] = { "Blazer 4",10,150000,"cars",0 },
-	["blazer5"] = { "Blazer 5",40,100,nil,0 },
-	["bodhi2"] = { "Bodhi 2",40,90000,"cars",0 },
-	["brawler"] = { "Brawler",40,170000,"cars",0 },
-	["bruiser"] = { "Bruiser",40,100,nil,0 },
-	["bruiser2"] = { "Bruiser 2",40,100,nil,0 },
-	["bruiser3"] = { "Bruiser 3",40,100,nil,0 },
-	["brutus"] = { "Brutus",40,100,nil,0 },
-	["brutus2"] = { "Brutus 2",40,100,nil,0 },
-	["brutus3"] = { "Brutus 3",40,100,nil,0 },
-	["caracara"] = { "Caracara",40,100,nil,0 },
-	["dloader"] = { "Dloader",40,70000,"cars",0 },
-	["dubsta3"] = { "Dubsta 3",55,130000,"cars",0 },
-	["dune"] = { "Dune",40,100,nil,0 },
-	["dune2"] = { "Dune 2",40,100,nil,0 },
-	["dune3"] = { "Dune 3",40,100,nil,0 },
-	["dune4"] = { "Dune 4",40,100,nil,0 },
-	["dune5"] = { "Dune 5",40,100,nil,0 },
-	["freecrawler"] = { "Freecrawler",50,190000,"cars",0 },
-	["insurgent"] = { "Insurgent",40,100,nil,0 },
-	["insurgent2"] = { "Insurgent 2",40,100,nil,0 },
-	["insurgent3"] = { "Insurgent 3",40,100,nil,0 },
-	["kalahari"] = { "Kalahari",20,70000,"cars",0 },
-	["kamacho"] = { "Kamacho",50,410000,"cars",0 },
-	["marshall"] = { "Marshall",40,100,nil,0 },
-	["mesa3"] = { "Mesa 3",50,150000,"cars",0 },
-	["monster"] = { "Monster",40,100,nil,0 },
-	["monster3"] = { "Monster 3",40,100,nil,0 },
-	["monster4"] = { "Monster 4",40,100,nil,0 },
-	["monster5"] = { "Monster 5",40,100,nil,0 },
-	["menacer"] = { "Menacer",40,100,nil,0 },
-	["nightshark"] = { "Nightshark",40,100,nil,0 },
-	["rancherxl"] = { "Rancher XL",40,130000,"cars",0 },
-	["rancherxl2"] = { "Rancher XL2",40,100,nil,0 },
-	["rebel"] = { "Rebel",40,90000,"cars",0 },
-	["rebel2"] = { "Rebel 2",45,90000,"cars",0 },
-	["rcbandito"] = { "RC Bandito",40,100,nil,0 },
-	["riata"] = { "Riata",45,90000,"cars",0 },
-	["sandking"] = { "Sandking",50,150000,"cars",0 },
-	["sandking2"] = { "Sandking 2",55,150000,"cars",0 },
-	["technical"] = { "Technical",40,100,nil,0 },
-	["technical2"] = { "Technical 2",40,100,nil,0 },
-	["technical3"] = { "Technical 3",40,100,nil,0 },
-	["trophytruck"] = { "Trophytruck",20,190000,"cars",0 },
-	["trophytruck2"] = { "Trophytruck 2",40,100,nil,0 },
-	["alphaz1"] = { "Alphaz 1",40,100,nil,0 },
-	["avenger"] = { "Avenger",40,100,nil,0 },
-	["avenger2"] = { "Avenger 2",40,100,nil,0 },
-	["besra"] = { "Besra",40,100,nil,0 },
-	["blimp"] = { "Blimp",40,100,nil,0 },
-	["blimp2"] = { "Blimp 2",40,100,nil,0 },
-	["blimp3"] = { "Blimp 3",40,100,nil,0 },
-	["bombushka"] = { "Bombushka",40,100,nil,0 },
-	["cargoplane"] = { "Cargoplane",40,100,nil,0 },
-	["cuban800"] = { "Cuban800",0,2000,nil,0 },
-	["dodo"] = { "Dodo",0,2000,nil,0 },
-	["duster"] = { "Duster",40,100,nil,0 },
-	["howard"] = { "Howard",40,100,nil,0 },
-	["hydra"] = { "Hydra",40,100,nil,0 },
-	["jet"] = { "Jet",40,100,nil,0 },
-	["lazer"] = { "Lazer",40,100,nil,0 },
-	["luxor"] = { "Luxor",0,2000,nil,0 },
-	["luxor2"] = { "Luxor 2",40,100,nil,0 },
-	["mammatus"] = { "Mammatus",0,2000,nil,0 },
-	["microlight"] = { "Microlight",40,100,nil,0 },
-	["miljet"] = { "Miljet",0,2000,nil,0 },
-	["mogul"] = { "Mogul",40,100,nil,0 },
-	["molotok"] = { "Molotok",40,100,nil,0 },
-	["nimbus"] = { "Nimbus",0,2000,nil,0 },
-	["nokota"] = { "Nokota",40,100,nil,0 },
-	["pyro"] = { "Pyro",40,100,nil,0 },
-	["rogue"] = { "Rogue",40,100,nil,0 },
-	["seabreeze"] = { "Seabreeze",40,100,nil,0 },
-	["shamal"] = { "Shamal",0,2000,nil,0 },
-	["starling"] = { "Starling",40,100,nil,0 },
-	["strikeforce"] = { "Strikeforce",40,100,nil,0 },
-	["stunt"] = { "Stunt",40,100,nil,0 },
-	["titan"] = { "Titan",40,100,nil,0 },
-	["tula"] = { "Tula",40,100,nil,0 },
-	["velum"] = { "Velum",0,2000,nil,0 },
-	["velum2"] = { "Velum 2",40,100,nil,0 },
-	["vestra"] = { "Vestra",40,100,nil,0 },
-	["volatol"] = { "Volatol",40,100,nil,0 },
-	["baller"] = { "Baller",50,90000,"cars",0 },
-	["baller2"] = { "Baller 2",50,90000,"cars",0 },
-	["baller3"] = { "Baller 3",50,110000,"cars",0 },
-	["baller4"] = { "Baller 4",50,110000,"cars",0 },
-	["baller5"] = { "Baller 5",50,410000,"cars",0 },
-	["baller6"] = { "Baller 6",50,510000,"cars",0 },
-	["bjxl"] = { "Bjxl",40,70000,"cars",0 },
-	["cavalcade"] = { "Cavalcade",40,70000,"cars",0 },
-	["cavalcade2"] = { "Cavalcade 2",45,70000,"cars",0 },
-	["contender"] = { "Contender",40,250000,"cars",0 },
-	["dubsta"] = { "Dubsta",50,110000,"cars",0 },
-	["dubsta2"] = { "Dubsta 2",55,130000,"cars",0 },
-	["fq2"] = { "Fq2",40,70000,"cars",0 },
-	["granger"] = { "Granger",65,130000,"cars",0 },
-	["gresley"] = { "Gresley",35,70000,"cars",0 },
-	["habanero"] = { "Habanero",35,70000,"cars",0 },
-	["huntley"] = { "Huntley",35,70000,"cars",0 },
-	["landstalker"] = { "Landstalker",40,90000,"cars",0 },
-	["mesa"] = { "Mesa",40,90000,"cars",0 },
-	["mesa2"] = { "Mesa 2",40,100,nil,0 },
-	["patriot"] = { "Patriot",50,130000,"cars",0 },
-	["patriot2"] = { "Patriot 2",50,170000,"cars",0 },
-	["radi"] = { "Radi",35,70000,"cars",0 },
-	["rocoto"] = { "Rocoto",35,70000,"cars",0 },
-	["seminole"] = { "Seminole",35,70000,"cars",0 },
-	["serrano"] = { "Serrano",35,70000,"cars",0 },
-	["toros"] = { "Toros",50,190000,"cars",0 },
-	["xls"] = { "Xls",35,90000,"cars",0 },
-	["xls2"] = { "Xls 2",50,510000,"cars",0 },
-	["asea"] = { "Asea",30,50000,"cars",0 },
-	["asea2"] = { "Asea 2",40,100,nil,0 },
-	["asterope"] = { "Asterope",20,30000,"cars",0 },
-	["cog55"] = { "Cog55",50,150000,"cars",0 },
-	["cog552"] = { "Cog55 2",50,410000,"cars",0 },
-	["cognoscenti"] = { "Cognoscenti",50,130000,"cars",0 },
-	["cognoscenti2"] = { "Cognoscenti 2",50,410000,"cars",0 },
-	["emperor"] = { "Emperor",25,5000,"cars",0 },
-	["emperor2"] = { "Emperor 2",20,2000,"cars",0 },
-	["emperor3"] = { "Emperor 3",40,100,nil,0 },
-	["fugitive"] = { "Fugitive",30,150000,"cars",0 },
-	["glendale"] = { "Glendale",50,90000,"cars",0 },
-	["ingot"] = { "Ingot",40,15000,"cars",0 },
-	["intruder"] = { "Intruder",40,90000,"cars",0 },
-	["limo2"] = { "Limo 2",40,100,nil,0 },
-	["premier"] = { "Premier",35,70000,"cars",0 },
-	["primo"] = { "Primo",30,90000,"cars",0 },
-	["primo2"] = { "Primo 2",40,90000,"cars",0 },
-	["regina"] = { "Regina",40,70000,"cars",0 },
-	["romero"] = { "Romero",30,110000,"cars",0 },
-	["schafter2"] = { "Schafter 2",40,90000,"cars",0 },
-	["schafter5"] = { "Schafter 5",50,410000,"cars",0 },
-	["schafter6"] = { "Schafter 6",50,410000,"cars",0 },
-	["stafford"] = { "Stafford",40,150000,"cars",0 },
-	["stanier"] = { "Stanier",25,50000,"cars",0 },
-	["stratum"] = { "Stratum",40,30000,"cars",0 },
-	["stretch"] = { "Stretch",40,150000,"cars",0 },
-	["superd"] = { "Superd",40,130000,"cars",0 },
-	["surge"] = { "Surge",40,130000,"cars",0 },
-	["tailgater"] = { "Tailgater",40,130000,"cars",0 },
-	["warrener"] = { "Warrener",40,110000,"cars",0 },
-	["washington"] = { "Washington",40,50000,"cars",0 },
-	["airbus"] = { "Airbus",40,100,nil,0 },
-	["brickade"] = { "Brickade",40,100,nil,0 },
-	["bus"] = { "Bus",0,1000,"work",0 },
-	["coach"] = { "Coach",40,100,nil,0 },
-	["pbus2"] = { "Pbus 2",40,100,nil,0 },
-	["rallytruck"] = { "Rally Truck",40,100,nil,0 },
-	["rentalbus"] = { "Rental Bus",40,100,nil,0 },
-	["taxi"] = { "Taxi",0,500,"work",0 },
-	["tourbus"] = { "Tour Bus",40,100,nil,0 },
-	["trash"] = { "Trash",40,1000,"work",0 },
-	["trash2"] = { "Trash 2",40,100,nil,0 },
-	["wastelander"] = { "Wastelander",40,100,nil,0 },
-	["alpha"] = { "Alpha",40,70000,"cars",0 },
-	["banshee"] = { "Banshee",30,150000,"cars",0 },
-	["bestiagts"] = { "Bestia GTS",50,190000,"cars",0 },
-	["blista2"] = { "Blista 2",30,70000,"cars",0 },
-	["blista3"] = { "Blista 3",35,70000,"cars",0 },
-	["buffalo"] = { "Buffalo",50,110000,"cars",0 },
-	["buffalo2"] = { "Buffalo 2",50,110000,"cars",0 },
-	["buffalo3"] = { "Buffalo 3",50,110000,"cars",0 },
-	["carbonizzare"] = { "Carbonizzare",50,70000,"cars",0 },
-	["comet2"] = { "Comet 2",40,110000,"cars",0 },
-	["comet3"] = { "Comet 3",40,130000,"cars",0 },
-	["comet4"] = { "Comet 4",40,130000,"cars",0 },
-	["comet5"] = { "Comet 5",40,170000,"cars",0 },
-	["coquette"] = { "Coquette",40,150000,"cars",0 },
-	["deveste"] = { "Deveste",40,100,nil,0 },
-	["elegy"] = { "Elegy",50,190000,"cars",0 },
-	["elegy2"] = { "Elegy 2",30,170000,"cars",0 },
-	["feltzer2"] = { "Feltzer 2",50,170000,"cars",0 },
-	["flashgt"] = { "Flash GT",40,190000,"cars",0 },
-	["furoregt"] = { "Furore GT",35,90000,"cars",0 },
-	["fusilade"] = { "Fusilade",35,90000,"cars",0 },
-	["futo"] = { "Futo",40,110000,"cars",0 },
-	["gb200"] = { "Gb200",40,110000,"cars",0 },
-	["hotring"] = { "Hotring",50,150000,"cars",0 },
-	["italigto"] = { "Itali GTO",30,250000,"cars",0 },
-	["jester"] = { "Jester",30,130000,"cars",0 },
-	["jester2"] = { "Jester 2",30,150000,"cars",0 },
-	["jester3"] = { "Jester 3",30,170000,"cars",0 },
-	["khamelion"] = { "Khamelion",30,170000,"cars",0 },
-	["kuruma"] = { "Kuruma",50,190000,"cars",0 },
-	["kuruma2"] = { "Kuruma 2",40,100,nil,0 },
-	["lynx"] = { "Lynx",35,150000,"cars",0 },
-	["massacro"] = { "Massacro",50,170000,"cars",0 },
-	["massacro2"] = { "Massacro 2",50,170000,"cars",0 },
-	["neon"] = { "Neon",30,290000,"cars",0 },
-	["ninef"] = { "Ninef",40,150000,"cars",0 },
-	["ninef2"] = { "Ninef 2",40,170000,"cars",0 },
-	["omnis"] = { "Omnis",40,130000,"cars",0 },
-	["pariah"] = { "Pariah",30,170000,"cars",0 },
-	["penumbra"] = { "Penumbra",40,150000,"cars",0 },
-	["raiden"] = { "Raiden",40,250000,"cars",0 },
-	["rapidgt"] = { "Rapid GT",20,190000,"cars",0 },
-	["rapidgt2"] = { "Rapidgt GT2",20,190000,"cars",0 },
-	["raptor"] = { "Raptor",40,100,nil,0 },
-	["revolter"] = { "Revolter",40,100,nil,0 },
-	["ruston"] = { "Ruston",20,150000,"cars",0 },
-	["schafter3"] = { "Schafter 3",50,130000,"cars",0 },
-	["schafter4"] = { "Schafter 4",50,150000,"cars",0 },
-	["schlagen"] = { "Schlagen",30,170000,"cars",0 },
-	["schwarzer"] = { "Schwarzer",50,130000,"cars",0 },
-	["sentinel3"] = { "Sentinel 3",30,170000,"cars",0 },
-	["seven70"] = { "Seven 70",20,170000,"cars",0 },
-	["specter"] = { "Specter",20,170000,"cars",0 },
-	["specter2"] = { "Specter 2",20,170000,"cars",0 },
-	["streiter"] = { "Streiter",35,70000,"cars",0 },
-	["sultan"] = { "Sultan",30,190000,"cars",0 },
-	["surano"] = { "Surano",35,70000,"cars",0 },
-	["tampa2"] = { "Tampa 2",35,150000,"cars",0 },
-	["tropos"] = { "Tropos",35,130000,"cars",0 },
-	["verlierer2"] = { "Verlierer 2",20,210000,"cars",0 },
-	["zr380"] = { "Zr380",40,100,nil,0 },
-	["zr3802"] = { "Zr380 2",40,100,nil,0 },
-	["zr3803"] = { "Zr380 3",40,100,nil,0 },
-	["ardent"] = { "Ardent",40,100,nil,0 },
-	["btype"] = { "Btype",50,170000,"cars",0 },
-	["btype2"] = { "Btype 2",50,170000,"cars",0 },
-	["btype3"] = { "Btype 3",50,190000,"cars",0 },
-	["casco"] = { "Casco",50,170000,"cars",0 },
-	["cheetah2"] = { "Cheetah 2",40,100,nil,0 },
-	["coquette2"] = { "Coquette 2",40,170000,"cars",0 },
-	["deluxo"] = { "Deluxo",40,100,nil,0 },
-	["fagaloa"] = { "Fagaloa",50,130000,"cars",0 },
-	["feltzer3"] = { "Feltzer 3",50,150000,"cars",0 },
-	["gt500"] = { "GT 500",40,150000,"cars",0 },
-	["infernus2"] = { "Infernus 2",20,250000,"cars",0 },
-	["jb700"] = { "JB 700",30,100,nil,0 },
-	["mamba"] = { "Mamba",50,170000,"cars",0 },
-	["manana"] = { "Manana",35,70000,"cars",0 },
-	["michelli"] = { "Michelli",40,90000,"cars",0 },
-	["monroe"] = { "Monroe",50,130000,"cars",0 },
-	["peyote"] = { "Peyote",35,70000,"cars",0 },
-	["pigalle"] = { "Pigalle",40,90000,"cars",0 },
-	["rapidgt3"] = { "Rapid GT3",50,150000,"cars",0 },
-	["retinue"] = { "Retinue",40,150000,"cars",0 },
-	["savestra"] = { "Savestra",40,170000,"cars",0 },
-	["stinger"] = { "Stinger",50,130000,"cars",0 },
-	["stingergt"] = { "Stinger GT",50,150000,"cars",0 },
-	["stromberg"] = { "Stromberg",40,100,nil,0 },
-	["swinger"] = { "Swinger",50,130000,"cars",0 },
-	["torero"] = { "Torero",40,100,nil,0 },
-	["tornado"] = { "Tornado",40,90000,"cars",0 },
-	["tornado2"] = { "Tornado 2",45,90000,"cars",0 },
-	["tornado3"] = { "Tornado 3",40,100,nil,0 },
-	["tornado4"] = { "Tornado 4",40,100,nil,0 },
-	["tornado5"] = { "Tornado 5",50,110000,"cars",0 },
-	["tornado6"] = { "Tornado 6",40,100,nil,0 },
-	["turismo2"] = { "Turismo 2",30,210000,"cars",0 },
-	["viseris"] = { "Viseris",40,100,nil,0 },
-	["z190"] = { "Z190",40,130000,"cars",0 },
-	["ztype"] = { "Ztype",50,250000,"cars",0 },
-	["cheburek"] = { "Cheburek",50,90000,"cars",0 },
-	["adder"] = { "Adder",20,250000,"cars",0 },
-	["autarch"] = { "Autarch",20,290000,"cars",0 },
-	["banshee2"] = { "Banshee 2",20,210000,"cars",0 },
-	["bullet"] = { "Bullet",30,170000,"cars",0 },
-	["cheetah"] = { "Cheetah",20,230000,"cars",0 },
-	["cyclone"] = { "Cyclone",20,330000,"cars",0 },
-	["entity2"] = { "Entity 2",30,290000,"cars",0 },
-	["entityxf"] = { "Entity XF",20,290000,"cars",0 },
-	["fmj"] = { "Fmj",20,210000,"cars",0 },
-	["gp1"] = { "Gp1",20,290000,"cars",0 },
-	["infernus"] = { "Infernus",20,170000,"cars",0 },
-	["italigtb"] = { "Italigtb",20,250000,"cars",0 },
-	["italigtb2"] = { "Italigtb 2",20,250000,"cars",0 },
-	["le7b"] = { "Le7b",40,100,nil,0 },
-	["nero"] = { "Nero",20,250000,"cars",0 },
-	["nero2"] = { "Nero 2",20,270000,"cars",0 },
-	["osiris"] = { "Osiris",20,210000,"cars",0 },
-	["penetrator"] = { "Penetrator",30,190000,"cars",0 },
-	["pfister811"] = { "Pfister 811",20,250000,"cars",0 },
-	["prototipo"] = { "Prototipo",40,100,nil,0 },
-	["reaper"] = { "Reaper",20,190000,"cars",0 },
-	["sc1"] = { "Sc1",40,210000,"cars",0 },
-	["scramjet"] = { "Scramjet",40,100,nil,0 },
-	["sheava"] = { "Sheava",30,250000,"cars",0 },
-	["sultanrs"] = { "Sultan RS",30,210000,"cars",0 },
-	["t20"] = { "T20",20,290000,"cars",0 },
-	["taipan"] = { "Taipan",20,290000,"cars",0 },
-	["tempesta"] = { "Tempesta",20,210000,"cars",0 },
-	["tezeract"] = { "Tezeract",20,350000,"cars",0 },
-	["turismor"] = { "Turismo R",20,250000,"cars",0 },
-	["tyrant"] = { "Tyrant",20,290000,"cars",0 },
-	["tyrus"] = { "Tyrus",20,330000,"cars",0 },
-	["vacca"] = { "Vacca",20,240000,"cars",0 },
-	["vagner"] = { "Vagner",20,290000,"cars",0 },
-	["vigilante"] = { "Vigilante",40,100,nil,0 },
-	["visione"] = { "Visione",20,410000,"cars",0 },
-	["voltic"] = { "Voltic",20,250000,"cars",0 },
-	["voltic2"] = { "Voltic 2",40,100,nil,0 },
-	["xa21"] = { "Xa21",20,290000,"cars",0 },
-	["zentorno"] = { "Zentorno",20,310000,"cars",0 },
-	["armytanker"] = { "Armytanker",40,100,nil,0 },
-	["armytrailer"] = { "Armytrailer",40,100,nil,0 },
-	["armytrailer2"] = { "Armytrailer 2",40,100,nil,0 },
-	["baletrailer"] = { "Baletrailer",40,100,nil,0 },
-	["boattrailer"] = { "Boattrailer",40,100,nil,0 },
-	["cablecar"] = { "Cablecar",40,100,nil,0 },
-	["docktrailer"] = { "Docktrailer",40,100,nil,0 },
-	["freighttrailer"] = { "Freighttrailer",40,100,nil,0 },
-	["graintrailer"] = { "Graintrailer",40,100,nil,0 },
-	["proptrailer"] = { "Proptrailer",40,100,nil,0 },
-	["raketrailer"] = { "Raketrailer",40,100,nil,0 },
-	["tr2"] = { "Tr2",40,100,nil,0 },
-	["tr3"] = { "Tr3",40,100,nil,0 },
-	["tr4"] = { "Tr4",40,100,nil,0 },
-	["trflat"] = { "Trflat",40,100,nil,0 },
-	["tvtrailer"] = { "Tvtrailer",40,100,nil,0 },
-	["tanker"] = { "Tanker",40,100,nil,0 },
-	["tanker2"] = { "Tanker 2",40,100,nil,0 },
-	["trailerlarge"] = { "Trailerlarge",40,100,nil,0 },
-	["trailerlogs"] = { "Trailerlogs",40,100,nil,0 },
-	["trailersmall"] = { "Trailersmall",40,100,nil,0 },
-	["trailers"] = { "Trailers",40,100,nil,0 },
-	["trailers2"] = { "Trailers 2",40,100,nil,0 },
-	["trailers3"] = { "Trailers 3",40,100,nil,0 },
-	["trailers4"] = { "Trailers 4",40,100,nil,0 },
-	["freight"] = { "Freight",40,100,nil,0 },
-	["freightcar"] = { "Freightcar",40,100,nil,0 },
-	["freightcont1"] = { "Freightcont 1",40,100,nil,0 },
-	["freightcont2"] = { "Freightcont 2",40,100,nil,0 },
-	["freightgrain"] = { "Freightgrain",40,100,nil,0 },
-	["metrotrain"] = { "Metrotrain",40,100,nil,0 },
-	["tankercar"] = { "Rankercar",40,100,nil,0 },
-	["airtug"] = { "Airtug",40,100,nil,0 },
-	["caddy"] = { "Caddy",20,70000,"cars",0 },
-	["caddy2"] = { "Caddy 2",20,70000,"cars",0 },
-	["caddy3"] = { "Caddy 3",10,50000,"cars",0 },
-	["docktug"] = { "Docktug",40,100,nil,0 },
-	["forklift"] = { "Forklift",40,100,nil,0 },
-	["mower"] = { "Mower",40,100,nil,0 },
-	["ripley"] = { "Ripley",40,100,nil,0 },
-	["sadler"] = { "Sadler",40,100,nil,0 },
-	["sadler2"] = { "Sadler 2",40,100,nil,0 },
-	["scrap"] = { "Scrap",40,100,nil,0 },
-	["towtruck"] = { "Towtruck",40,100,nil,0 },
-	["towtruck2"] = { "Towtruck 2",0,1000,"work",0 },
-	["tractor"] = { "Tractor",40,100,nil,0 },
-	["tractor2"] = { "Tractor 2",40,100,nil,0 },
-	["tractor3"] = { "Tractor 3",40,100,nil,0 },
-	["utillitruck"] = { "Utillitruck",40,100,nil,0 },
-	["utillitruck2"] = { "Utillitruck 2",40,100,nil,0 },
-	["utillitruck3"] = { "Utillitruck 3",40,100,nil,0 },
-	["bison"] = { "Bison",50,70000,"cars",0 },
-	["bison2"] = { "Bison 2",40,100,nil,0 },
-	["bison3"] = { "Bison 3",40,100,nil,0 },
-	["bobcatxl"] = { "Bobcat XL",50,110000,"cars",0 },
-	["boxville"] = { "Boxville",40,100,nil,0 },
-	["boxville2"] = { "Boxville 2",40,100,nil,0 },
-	["boxville3"] = { "Boxville 3",40,100,nil,0 },
-	["boxville4"] = { "Boxville",40,100,nil,0 },
-	["boxville5"] = { "Boxville 5",40,100,nil,0 },
-	["burrito"] = { "Burrito",40,70000,"cars",0 },
-	["burrito2"] = { "Burrito 2",40,70000,"cars",0 },
-	["burrito3"] = { "Burrito 3",40,70000,"cars",0 },
-	["burrito4"] = { "Burrito 4",40,70000,"cars",0 },
-	["burrito5"] = { "Burrito 5",40,100,nil,0 },
-	["camper"] = { "Camper",50,70000,"cars",0 },
-	["gburrito"] = { "Gburrito",50,130000,"cars",0 },
-	["gburrito2"] = { "Gburrito 2",10,1000,nil,0 },
-	["journey"] = { "Journey",40,100,nil,0 },
-	["minivan"] = { "Minivan",40,90000,"cars",0 },
-	["minivan2"] = { "Minivan 2",50,110000,"cars",0 },
-	["paradise"] = { "Paradise",50,90000,"cars",0 },
-	["pony"] = { "Pony",40,70000,"cars",0 },
-	["pony2"] = { "Pony 2",40,90000,"cars",0 },
-	["rumpo"] = { "Rumpo",30,70000,"cars",0 },
-	["rumpo2"] = { "Rumpo 2",40,90000,"cars",0 },
-	["rumpo3"] = { "Rumpo 3",50,350000,"cars",0 },
-	["speedo"] = { "Speedo",50,70000,"cars",0 },
-	["speedo2"] = { "Speedo 2",40,100,nil,0 },
-	["speedo4"] = { "Speedo 4",40,100,nil,0 },
-	["surfer"] = { "Surfer",40,70000,"cars",0 },
-	["surfer2"] = { "Surfer 2",40,70000,"cars",0 },
-	["taco"] = { "Taco",15,2000,"cars",0 },
-	["youga"] = { "Youga",30,70000,"cars",0 },
-	["youga2"] = { "Youga 2",75,5000,"work",0 },
-	["asbo"] = { "Asbo",20,90000,"cars",0 },
-	["kanjo"] = { "Kanjo",30,90000,"cars",0 },
-	["minitank"] = { "Minitank",40,1000,nil,0 },
-	["yosemite2"] = { "Yosemite 2",50,170000,"cars",0 },
-	["caracara2"] = { "Caracara 2",50,190000,"cars",0 },
-	["everon"] = { "Everon",50,250000,"cars",0 },
-	["rebla"] = { "Rebla",40,170000,"cars",0 },
-	["komoda"] = { "Komoda",30,250000,"cars",0 },
-	["imorgon"] = { "Imorgon",40,250000,"cars",0 },
-	["vstr"] = { "Vstr",40,190000,"cars",0 },
-	["club"] = { "Club",20,90000,"cars",0 },
-	["dukes3"] = { "Dukes 3",40,1000,nil,0 },
-	["gauntlet5"] = { "Gauntlet 5",40,210000,"cars",0 },
-	["yosemite3"] = { "Yosemite 3",50,190000,"cars",0 },
-	["openwheel1"] = { "Openwheel 1",40,1000,nil,0 },
-	["openwheel2"] = { "Openwheel 2",40,1000,nil,0 },
-	["landstalker2"] = { "Landstalker 2",50,190000,"cars",0 },
-	["seminole2"] = { "Seminole 2",45,110000,"cars",0 },
-	["glendale2"] = { "Glendale 2",50,150000,"cars",0 },
-	["coquette4"] = { "Coquette 4",30,250000,"cars",0 },
-	["penumbra2"] = { "Penumbra 2",30,210000,"cars",0 },
-	["manana2"] = { "Manana 2",35,110000,"cars",0 },
-	["peyote3"] = { "Peyote 3",45,130000,"cars",0 },
-	["tigon"] = { "Tigon",30,310000,"cars",0 },
-	["youga3"] = { "Youga 3",40,1000,nil,0 },
-	["stryder"] = { "Stryder",40,1000,nil,0 },
-	["gauntlet3"] = { "Gauntlet 3",40,170000,"cars",0 },
-	["gauntlet4"] = { "Gauntlet 4",40,210000,"cars",0 },
-	["peyote2"] = { "Peyote 2",45,130000,"cars",0 },
-	["hellion"] = { "Hellion",50,150000,"cars",0 },
-	["outlaw"] = { "Outlaw",20,170000,"cars",0 },
-	["vagrant"] = { "Vagrant",30,290000,"cars",0 },
-	["zhaba"] = { "Zhaba",40,1000,nil,0 },
-	["formula"] = { "Formula",40,1000,nil,0 },
-	["formula2"] = { "Formula 2",40,1000,nil,0 },
-	["novak"] = { "Novak",40,190000,"cars",0 },
-	["drafter"] = { "Drafter",40,130000,"cars",0 },
-	["issi7"] = { "Issi 7",40,210000,"cars",0 },
-	["jugular"] = { "Jugular",30,250000,"cars",0 },
-	["locust"] = { "Locust",20,190000,"cars",0 },
-	["neo"] = { "Neo",20,210000,"cars",0 },
-	["paragon"] = { "Paragon",30,210000,"cars",0 },
-	["paragon2"] = { "Paragon 2",40,100,nil,0 },
-	["sugoi"] = { "Sugoi",30,170000,"cars",0 },
-	["sultan2"] = { "Sultan 2",30,250000,"cars",0 },
-	["dynasty"] = { "Dynasty",40,170000,"cars",0 },
-	["jb7002"] = { "JB 7002",40,1000,nil,0 },
-	["nebula"] = { "Nebula",40,190000,"cars",0 },
-	["retinue2"] = { "Retinue 2",40,190000,"cars",0 },
-	["zion3"] = { "Zion 3",40,170000,"cars",0 },
-	["emerus"] = { "Emerus",20,290000,"cars",0 },
-	["furia"] = { "Furia",20,410000,"cars",0 },
-	["krieger"] = { "Krieger",20,290000,"cars",0 },
-	["s80"] = { "S80",40,1000,nil,0 },
-	["thrax"] = { "Thrax",50,290000,"cars",0 },
-	["zorrusso"] = { "Zorrusso",20,290000,"cars",0 },
-	["avisa"] = { "Avisa",20,10000,nil,0 },
-	["dinghy5"] = { "Dinghy 5",20,10000,nil,0 },
-	["kosatka"] = { "Kosatka",20,10000,nil,0 },
-	["longfin"] = { "Longfin",20,10000,nil,0 },
-	["patrolboat"] = { "Patrolboat",20,10000,nil,0 },
-	["brioso2"] = { "Brioso 2",35,90000,"cars",0 },
-	["weevil"] = { "Weevil",35,130000,"cars",0 },
-	["annihilator2"] = { "Annihilator 2",20,10000,nil,0 },
-	["seasparrow2"] = { "Seasparrow 2",20,10000,nil,0 },
-	["seasparrow3"] = { "Seasparrow 3",20,10000,nil,0 },
-	["vetir"] = { "Vetir",20,10000,nil,0 },
-	["manchez2"] = { "Manchez 2",20,10000,nil,0 },
-	["verus"] = { "Verus",20,10000,nil,0 },
-	["winky"] = { "Winky",20,10000,nil,0 },
-	["alkonost"] = { "Alkonost",20,10000,nil,0 },
-	["squaddie"] = { "Squaddie",20,10000,nil,0 },
-	["italirsx"] = { "Itali RSX",20,330000,"cars",0 },
-	["veto"] = { "Veto",10,1000,nil,0 },
-	["veto2"] = { "Veto 2",10,1000,nil,0 },
-	["toreador"] = { "Toreador",20,10000,nil,0 },
-	["slamtruck"] = { "Slamtruck",20,10000,nil,0 },
-	["dominator7"] = { "Dominator 7",20,190000,"cars",0 },
-	["tailgater2"] = { "Tailgater 2",40,210000,"cars",0 },
-	["zr350"] = { "ZR 350",20,190000,"cars",0 },
-	["calico"] = { "Calito",20,290000,"cars",0 },
-	["futo2"] = { "Futo 2",40,130000,"cars",0 },
-	["euros"] = { "Euros",30,190000,"cars",0 },
-	["jester4"] = { "Jester 4",30,250000,"cars",0 },
-	["remus"] = { "Remus",20,210000,"cars",0 },
-	["comet6"] = { "Comet 6",30,250000,"cars",0 },
-	["growler"] = { "Growler",30,250000,"cars",0 },
-	["vectre"] = { "Vectre",40,250000,"cars",0 },
-	["cypher"] = { "Cypher",20,310000,"cars",0 },
-	["sultan3"] = { "Sultan 3",30,370000,"cars",0 },
-	["rt3000"] = { "RT 3000",20,170000,"cars",0 },
-	["previon"] = { "Previon",40,190000,"cars",0 },
-	["crownvictoria"] = { "Crown Victoria",10,1000,"work",0 },
-	["dodgecharger2014"] = { "Dodge Charger 2014",10,1000,"work",0 },
-	["fordexplorer"] = { "Ford Explorer",10,1000,"work",0 },
-	["fordraptor"] = { "Ford Raptor",10,1000,"work",0 },
-	["fordtaurus"] = { "Ford Taurus",10,1000,"work",0 },
-	["fordmustanggt"] = { "Ford Mustang GT",10,2000,"work",0 },
-	["corvette"] = { "Chevrolet Corvette",10,2000,"work",0 },
-	["challenger"] = { "Dodge Challenger",10,2000,"work",0 },
-	["bmwi8"] = { "BMW I8",30,100000,"rental",60 },
-	["bmwm4gts"] = { "BMW M4 GTS",50,100000,"rental",60 },
-	["civictyper"] = { "Honda Civic Type-R",50,100000,"rental",60 },
-	["dodgechargersrt"] = { "Dodge Charger SRT",40,100000,"rental",60 },
-	["ferrari812"] = { "Ferrari 812",30,100000,"rental",60 },
-	["ferrarif12"] = { "Ferrari F12",30,100000,"rental",60 },
-	["ferrariitalia"] = { "Ferrari Italia",30,100000,"rental",60 },
-	["fordmustang"] = { "Ford Mustang",40,100000,"rental",60 },
-	["lamborghinihuracan"] = { "Lamborghini Huracan",40,100000,"rental",60 },
-	["lancerevolutionx"] = { "Lancer Evolution X",50,100000,"rental",60 },
-	["lancerevolution9"] = { "Lancer Evolution IX",50,100000,"rental",60 },
-	["mazdarx7"] = { "Mazda RX7",40,100000,"rental",60 },
-	["mazdarx72"] = { "Mazda RX7 RB",40,100000,"rental",60 },
-	["mclarensenna"] = { "McLaren Senna",30,100000,"rental",60 },
-	["mercedesgt63"] = { "Mercedes GT63",50,100000,"rental",60 },
-	["mustangfast"] = { "Mustang Fastback",50,100000,"rental",60 },
-	["nissangtr"] = { "Nissan GT-R R35",30,100000,"rental",60 },
-	["nissangtr2"] = { "Nissan GT-R EE",30,100000,"rental",60 },
-	["nissangtr3"] = { "Nissan GT-R RB",30,100000,"rental",60 },
-	["nissangtrnismo"] = { "Nissan GT-R Nismo",40,100000,"rental",60 },
-	["skyliner34"] = { "Skyline R34",40,100000,"rental",60 },
-	["skyliner342"] = { "Skyline R34 FF",40,100000,"rental",60 },
-	["subaruimpreza"] = { "Subaru Impreza",50,100000,"rental",60 },
-	["subarubrz"] = { "Subaru Brz RB",50,100000,"rental",60 },
-	["toyotasupra"] = { "Toyota Supra",40,100000,"rental",60 },
-	["toyotasupra2"] = { "Toyota Supra 2020",40,100000,"rental",60 },
-	["acuransx"] = { "Acura NSX",30,100000,"rental",60 },
-	["golfgti"] = { "Golf GTi",50,100000,"rental",60 },
-	["escaladegt900"] = { "Escalade GT900",50,100000,"rental",60 },
-	["escalade2021"] = { "Escalade 2021",50,100000,"rental",60 },
-	["dodgecharger1970"] = { "Dodge Charger 1970",40,100000,"rental",60 },
-	["bmwm5e34"] = { "BMW M5 e34",40,100000,"rental",60 },
-	["golfmk7"] = { "Golf Mk7",40,100000,"rental",60 },
-	["jeepcherokee"] = { "Jeep Cherokee",40,100000,"rental",60 },
-	["porsche911"] = { "Porsche 911 GT3",40,100000,"rental",60 },
-	["350z"] = { "Nissan 350z RB",40,100000,"rental",60 },
-	["urbandevil"] = { "Urban Devil",30,100000,"rental",60 },
-	["bloodline"] = { "Bloodline King",30,100000,"rental",60 },
-	["shelbygt500"] = { "Shelby GT500",50,100000,"rental",60 },
-	["bmwm1wb"] = { "BMW M1 Widebody",50,100000,"rental",60 },
-	["lamborghinihuracanlw"] = { "Lamborghini LW",40,100000,"rental",60 },
-	["panameramansory"] = { "Porsche Panamera",50,100000,"rental",60 },
-	["wheelchair"] = { "Cadeira de Rodas",10,1000,nil,0 },
-	["ferrarif40"] = { "Ferrari F40",30,100000,"rental",60 },
-	["astonmartindbs"] = { "Aston Martin DBS",30,100000,"rental",60 },
-	["nissangtr50"] = { "Nissan GT-R 50th",30,100000,"rental",60 },
-	["dodgechargerrt69"] = { "Dodge Charger RT69",50,100000,"rental",60 },
-	["mercedesamg63"] = { "Mercedes C63-S",50,100000,"rental",60 },
-	["r1"] = { "Yamaha R1",25,100000,"rental",60 },
-	["r6"] = { "Yamaha R6",25,100000,"rental",60,0.05 },
-	["s1000rr"] = { "BMW S1000RR",25,100000,"rental",60 },
-	["camaro"] = { "Chevrolet Camaro 2021",35,100000,"rental",60 },
-	["mustang1969"] = { "Ford Mustang 1969",40,100000,"rental",60 },
-	["r8v10"] = { "Audi R8",40,100000,"rental",60 },
-	["audirs6"] = { "Audi RS6",50,100000,"rental",60 },
-	["m8competition"] = { "BMW M8 Competition",50,100000,"rental",60 },
-	["rangerover"] = { "Range Rover",60,100000,"rental",60 },
-	["aventador"] = { "Lamborghini Aventador",30,100000,"rental",60 },
-	["bentleybacalar"] = { "Bentley Bacalar",50,100000,"rental",60 },
-	["bugattiatlantic"] = { "Bugatti Atlantic",40,100000,"rental",60 },
-	["corvettec7"] = { "Corvette C7",40,100000,"rental",60 },
-	["mercedesg65"] = { "Mercedes G65",50,100000,"rental",60 },
-	["vwtouareg"] = { "Volkswagen Touareg",60,100000,"rental",60 },
-	-- Policia
-	["B412"] = { "B412",70,1000,"work",0 },
-	["bmwm3"] = { "BMW M3",70,1000,"work",0 },
-	["bmwm5"] = { "BMW M5",70,1000,"work",0 },
-	["e63"] = { "E63",70,1000,"work",0 },
-	["fpace"] = { "Jaguar FPACE",70,1000,"work",0 },
-	["jettagli"] = { "Jetta GLI",70,1000,"work",0 },
-	["m4cs"] = { "BMW M4 CS",70,1000,"work",0 },
-	["tiger900"] = { "Tiger 900",70,1000,"work",0 },
-	["tundra"] = { "Tundra",70,1000,"work",0 },
-	["gurkha"] = { "Gurkha",70,1000,"work",0 },
-	-- Blindaods
-	["17m760i"] = { "BMW 760I Blindada",80,1000,"rental",100 },
-	["AGSTORExc90r"] = { "XC90-R Blindado",80,1000,"rental",100 },
-	["armoredgle"] = { "GLE Blindada",80,1000,"rental",180 },
-	["armoredjettagli"] = { "GLI Blindado",50,1000,"rental",180 },
-	["armoredporschemacan"] = { "Macan Blindada",80,1000,"rental",180 },
-	["armoredrs5"] = { "RS5 Blindado",60,1000,"rental",180 },
-	["armoredvelar"] = { "Velar Blindada",80,1000,"rental",180 },
-	["armoredx6"] = { "X6 Blindada",80,1000,"rental",180 },
-	["armoredx7m60i"] = { "X7-M60I Blindada",80,1000,"rental",100 },
-	["mlnovitec"] = { "Novitec Blindada",70,1000,"rental",95 },
-	["nivus"] = { "Nivus Blindado",70,1000,"rental",95 },
-	["rs6"] = { "RS6 Blindado",60,1000,"rental",95 },
-	["rsq8m"] = { "RSQ8M Blindado",60,1000,"rental",95 },
-	["WRcorolla22"] = { "Corolla Blindado",60,1000,"rental",95 },
-	["WRgls63"] = { "GLS-63 Blindado",80,1000,"rental",100 },
-	["WRgt63s"] = { "GT-63S Blindado",60,1000,"rental",140 },
-	["WRpurosangue"] = { "Puro-Sangue Blindada",90,1000,"rental",200 },
-	["xj6"] = { "XJ6",40,1000,"rental",100 }
+local List = {
+	-- Comanf
+	["Kamacho"] = {
+		["Name"] = "Kamacho",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["vetir"] = {
+		["Name"] = "vetir",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["double"] = {
+		["Name"] = "Double",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["mesa3"] = {
+		["Name"] = "Mesa 3",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["rebla"] = {
+		["Name"] = "Rebla",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["bigfrontiereb"] = {
+		["Name"] = "bigfrontiereb",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["bigl200eb"] = {
+		["Name"] = "bigl200eb",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["bigrangereb"] = {
+		["Name"] = "bigrangereb",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+-- Boats
+	["dinghy"] = {
+		["Name"] = "Dinghy",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["dinghy2"] = {
+		["Name"] = "Dinghy 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},	
+	["dinghy3"] = {
+		["Name"] = "Dinghy 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["dinghy4"] = {
+		["Name"] = "Dinghy 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["jetmax"] = {
+		["Name"] = "Jetmax",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["marquis"] = {
+		["Name"] = "Marquis",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["seashark"] = {
+		["Name"] = "Seashark",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["seashark2"] = {
+		["Name"] = "Seashark 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["seashark3"] = {
+		["Name"] = "Seashark 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["speeder"] = {
+		["Name"] = "Speeder",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["speeder2"] = {
+		["Name"] = "Speeder 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["squalo"] = {
+		["Name"] = "Squalo",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["submersible"] = {
+		["Name"] = "Submersible",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["submersible2"] = {
+		["Name"] = "Submersible 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["suntrap"] = {
+		["Name"] = "Suntrap",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["toro"] = {
+		["Name"] = "Toro",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["toro2"] = {
+		["Name"] = "Toro 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["tropic"] = {
+		["Name"] = "Tropic",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["tropic2"] = {
+		["Name"] = "Tropic 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["tug"] = {
+		["Name"] = "Tug",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["avisa"] = {
+		["Name"] = "Avisa",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["dinghy5"] = {
+		["Name"] = "Dinghy 5",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["kosatka"] = {
+		["Name"] = "Kosatka",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["longfin"] = {
+		["Name"] = "Longfin",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+	["patrolboat"] = {
+		["Name"] = "Patrolboat",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Embarcações"
+	},
+
+-- Commercials
+	["benson"] = {
+		["Name"] = "Benson",
+		["Weight"] = 1100,
+		["Price"] = 100000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 180,
+		["Class"] = "Caminhões"
+	},
+	["biff"] = {
+		["Name"] = "Biff",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["cerberus"] = {
+		["Name"] = "Cerberus",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["cerberus2"] = {
+		["Name"] = "Cerberus 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["cerberus3"] = {
+		["Name"] = "Cerberus 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["hauler"] = {
+		["Name"] = "Hauler",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["hauler2"] = {
+		["Name"] = "Hauler 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["mule"] = {
+		["Name"] = "Mule",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["mule2"] = {
+		["Name"] = "Mule 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["mule3"] = {
+		["Name"] = "Mule 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["mule4"] = {
+		["Name"] = "Mule 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["packer"] = {
+		["Name"] = "Packer",
+		["Weight"] = 0,
+		["Price"] = 500,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["phantom"] = {
+		["Name"] = "Phantom",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["phantom2"] = {
+		["Name"] = "Phantom 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["phantom3"] = {
+		["Name"] = "Phantom 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["pounder"] = {
+		["Name"] = "Pounder",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["pounder2"] = {
+		["Name"] = "Pounder 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["stockade"] = {
+		["Name"] = "Stockade",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["stockade3"] = {
+		["Name"] = "Stockade 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+	["terbyte"] = {
+		["Name"] = "Terbyte",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Caminhões"
+	},
+
+-- Compacts
+	["asbo"] = {
+		["Name"] = "Asbo",
+		["Weight"] = 20,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["blista"] = {
+		["Name"] = "Blista",
+		["Weight"] = 20,
+		["Price"] = 40000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["brioso"] = {
+		["Name"] = "Brioso",
+		["Weight"] = 20,
+		["Price"] = 30000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["club"] = {
+		["Name"] = "Club",
+		["Weight"] = 20,
+		["Price"] = 65000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["dilettante"] = {
+		["Name"] = "Dilettante",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["dilettante2"] = {
+		["Name"] = "Dilettante 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["kanjo"] = {
+		["Name"] = "Kanjo",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["issi2"] = {
+		["Name"] = "Issi 2",
+		["Weight"] = 25,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["issi3"] = {
+		["Name"] = "Issi 3",
+		["Weight"] = 35,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["issi4"] = {
+		["Name"] = "Issi 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["issi5"] = {
+		["Name"] = "Issi 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["issi6"] = {
+		["Name"] = "Issi 6",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["panto"] = {
+		["Name"] = "Panto",
+		["Weight"] = 20,
+		["Price"] = 15000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["prairie"] = {
+		["Name"] = "Prairie",
+		["Weight"] = 15,
+		["Price"] = 15000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["rhapsody"] = {
+		["Name"] = "Rhapsody",
+		["Weight"] = 15,
+		["Price"] = 10000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["brioso2"] = {
+		["Name"] = "Brioso 2",
+		["Weight"] = 20,
+		["Price"] = 40000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+	["weevil"] = {
+		["Name"] = "Weevil",
+		["Weight"] = 35,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Compactos"
+	},
+
+-- Coupes
+	["cogcabrio"] = {
+		["Name"] = "Cogcabrio",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["exemplar"] = {
+		["Name"] = "Exemplar",
+		["Weight"] = 20,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["f620"] = {
+		["Name"] = "F620",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["felon"] = {
+		["Name"] = "Felon",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["felon2"] = {
+		["Name"] = "Felon 2",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["jackal"] = {
+		["Name"] = "Jackal",
+		["Weight"] = 30,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["oracle"] = {
+		["Name"] = "Oracle",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["oracle2"] = {
+		["Name"] = "Oracle 2",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["sentinel"] = {
+		["Name"] = "Sentinel",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["sentinel2"] = {
+		["Name"] = "Sentinel 2",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["windsor"] = {
+		["Name"] = "Windsor",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["windsor2"] = {
+		["Name"] = "Windsor 2",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["zion"] = {
+		["Name"] = "Zion",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["zion2"] = {
+		["Name"] = "Zion 2",
+		["Weight"] = 35,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+	["previon"] = {
+		["Name"] = "Previon",
+		["Weight"] = 30,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Cupês"
+	},
+
+-- Cycles
+	["bmx"] = {
+		["Name"] = "Bmx Normal",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},	
+	["cruiser"] = {
+		["Name"] = "Cruiser",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+	["fixter"] = {
+		["Name"] = "Fixter",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+	["scorcher"] = {
+		["Name"] = "Scorcher",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+	["tribike"] = {
+		["Name"] = "Tribike",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+	["tribike2"] = {
+		["Name"] = "Tribike 2",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+	["tribike3"] = {
+		["Name"] = "Tribike 3",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Bicicletas"
+	},
+
+-- Emergency
+	["ambulance"] = {
+		["Name"] = "Ambulance",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["fbi"] = {
+		["Name"] = "Fbi",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["fbi2"] = {
+		["Name"] = "Fbi 2",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["firetruk"] = {
+		["Name"] = "Firetruk",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},	
+	["lguard"] = {
+		["Name"] = "Lguard",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["pbus"] = {
+		["Name"] = "Pbus",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["police"] = {
+		["Name"] = "Police",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["police2"] = {
+		["Name"] = "Police 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["police3"] = {
+		["Name"] = "Police 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["police4"] = {
+		["Name"] = "Police 4",
+		["Weight"] = 20,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["policeb"] = {
+		["Name"] = "Harley FLH1200",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["polmav"] = {
+		["Name"] = "Polmav",
+		["Weight"] = 40,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["policeold1"] = {
+		["Name"] = "Policeold 1",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["policeold2"] = {
+		["Name"] = "Policeold 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["policet"] = {
+		["Name"] = "Police T",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["pranger"] = {
+		["Name"] = "Pranger",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["predator"] = {
+		["Name"] = "Predator",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["riot"] = {
+		["Name"] = "Riot",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["riot2"] = {
+		["Name"] = "Riot 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["sheriff"] = {
+		["Name"] = "Sheriff",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+	["sheriff2"] = {
+		["Name"] = "Sheriff 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Emergência"
+	},
+
+-- Helicopters
+	["annihilator"] = {
+		["Name"] = "Annihilator",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["cargobob2"] = {
+		["Name"] = "Cargobob 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["cargobob3"] = {
+		["Name"] = "Cargobob 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["cargobob4"] = {
+		["Name"] = "Cargobob 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["frogger"] = {
+		["Name"] = "Frogger",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["frogger2"] = {
+		["Name"] = "Frogger 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["havok"] = {
+		["Name"] = "Havok",
+		["Weight"] = 100,
+		["Price"] = 262500,
+		["Mode"] = "Work",
+		["Gemstone"] = 7500,
+		["Class"] = "Helicópteros"
+	},
+	["hunter"] = {
+		["Name"] = "Hunter",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["maverick"] = {
+		["Name"] = "Maverick",
+		["Weight"] = 100,
+		["Price"] = 437500,
+		["Mode"] = "Work",
+		["Gemstone"] = 12500,
+		["Class"] = "Helicópteros"
+	},
+	["savage"] = {
+		["Name"] = "Savage",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["seasparrow"] = {
+		["Name"] = "Seasparrow",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["skylift"] = {
+		["Name"] = "Skylift",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["supervolito"] = {
+		["Name"] = "Supervolito",
+		["Weight"] = 100,
+		["Price"] = 437500,
+		["Mode"] = "Work",
+		["Gemstone"] = 12500,
+		["Class"] = "Helicópteros"
+	},
+	["supervolito2"] = {
+		["Name"] = "Supervolito 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["swift"] = {
+		["Name"] = "Swift",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["swift2"] = {
+		["Name"] = "Swift 2",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["valkyrie"] = {
+		["Name"] = "Valkyrie",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["valkyrie2"] = {
+		["Name"] = "Valkyrie 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["volatus"] = {
+		["Name"] = "Volatus",
+		["Weight"] = 100,
+		["Price"] = 437500,
+		["Mode"] = "Work",
+		["Gemstone"] = 12500,
+		["Class"] = "Helicópteros"
+	},
+	["annihilator2"] = {
+		["Name"] = "Annihilator 2",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["seasparrow2"] = {
+		["Name"] = "Seasparrow 2",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+	["seasparrow3"] = {
+		["Name"] = "Seasparrow 3",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Helicópteros"
+	},
+
+-- Industrial	
+	["bulldozer"] = {
+		["Name"] = "Bulldozer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["cutter"] = {
+		["Name"] = "Cutter",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["dump"] = {
+		["Name"] = "Dump",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["flatbed"] = {
+		["Name"] = "Flatbed",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["guardian"] = {
+		["Name"] = "Guardian",
+		["Weight"] = 50,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["handler"] = {
+		["Name"] = "Handler",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["mixer"] = {
+		["Name"] = "Mixer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["mixer2"] = {
+		["Name"] = "Mixer 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["rubble"] = {
+		["Name"] = "Rubble",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["tiptruck"] = {
+		["Name"] = "Tiptruck",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+	["tiptruck2"] = {
+		["Name"] = "Tiptruck 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Industriais"
+	},
+
+-- Military
+	["apc"] = {
+		["Name"] = "Apc",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["barracks"] = {
+		["Name"] = "Barracks",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["barracks2"] = {
+		["Name"] = "Barracks 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["barracks3"] = {
+		["Name"] = "Barracks 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["barrage"] = {
+		["Name"] = "Barrage",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["chernobog"] = {
+		["Name"] = "Chernobog",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["crusader"] = {
+		["Name"] = "Crusader",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["halftrack"] = {
+		["Name"] = "Halftrack",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["khanjali"] = {
+		["Name"] = "Khanjali",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["minitank"] = {
+		["Name"] = "Minitank",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["scarab"] = {
+		["Name"] = "Scarab",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["scarab2"] = {
+		["Name"] = "Scarab 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["scarab3"] = {
+		["Name"] = "Scarab 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["thruster"] = {
+		["Name"] = "Thruster",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+	["trailersmall2"] = {
+		["Name"] = "Trailersmall 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Militares"
+	},
+
+-- Motorcycles
+	["akuma"] = {
+		["Name"] = "Akuma",
+		["Weight"] = 20,
+		["Price"] = 240000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["avarus"] = {
+		["Name"] = "Avarus",
+		["Weight"] = 20,
+		["Price"] = 120000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["bagger"] = {
+		["Name"] = "Bagger",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["bati"] = {
+		["Name"] = "Bati",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["bati2"] = {
+		["Name"] = "Bati 2",
+		["Weight"] = 20,
+		["Price"] = 240000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["bf400"] = {
+		["Name"] = "Bf400",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["carbonrs"] = {
+		["Name"] = "Carbon RS",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["chimera"] = {
+		["Name"] = "Chimera",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["cliffhanger"] = {
+		["Name"] = "Cliffhanger",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["daemon"] = {
+		["Name"] = "Daemon",
+		["Weight"] = 20,
+		["Price"] = 140000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["daemon2"] = {
+		["Name"] = "Daemon 2",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["defiler"] = {
+		["Name"] = "Defiler",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["deathbike"] = {
+		["Name"] = "Deathbike",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["deathbike2"] = {
+		["Name"] = "Deathbike 2",
+		["Weight"] = 20,
+		["Price"] = 65000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["deathbike3"] = {
+		["Name"] = "Deathbike 3",
+		["Weight"] = 20,
+		["Price"] = 65000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["diablous"] = {
+		["Name"] = "Diablous",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["diablous2"] = {
+		["Name"] = "Diablous 2",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["enduro"] = {
+		["Name"] = "Enduro",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["esskey"] = {
+		["Name"] = "Esskey",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["faggio"] = {
+		["Name"] = "Faggio",
+		["Weight"] = 10,
+		["Price"] = 2000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["faggio2"] = {
+		["Name"] = "Faggio 2",
+		["Weight"] = 10,
+		["Price"] = 2000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["faggio3"] = {
+		["Name"] = "Faggio 3",
+		["Weight"] = 10,
+		["Price"] = 2000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["fcr"] = {
+		["Name"] = "Fcr",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["fcr2"] = {
+		["Name"] = "Fcr 2",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["gargoyle"] = {
+		["Name"] = "Gargoyle",
+		["Weight"] = 20,
+		["Price"] = 230000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["hakuchou"] = {
+		["Name"] = "Hakuchou",
+		["Weight"] = 20,
+		["Price"] = 240000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["hakuchou2"] = {
+		["Name"] = "Hakuchou 2",
+		["Weight"] = 20,
+		["Price"] = 270000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["hexer"] = {
+		["Name"] = "Hexer",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["innovation"] = {
+		["Name"] = "Innovation",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["lectro"] = {
+		["Name"] = "Lectro",
+		["Weight"] = 20,
+		["Price"] = 120000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["manchez"] = {
+		["Name"] = "Manchez",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["manchez3"] = {
+		["Name"] = "manchez3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["nemesis"] = {
+		["Name"] = "Nemesis",
+		["Weight"] = 20,
+		["Price"] = 140000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["nightblade"] = {
+		["Name"] = "Nightblade",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["oppressor"] = {
+		["Name"] = "Oppressor",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["oppressor2"] = {
+		["Name"] = "Oppressor 2",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["pcj"] = {
+		["Name"] = "Pcj",
+		["Weight"] = 20,
+		["Price"] = 100000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["powersurge"] = {
+		["Name"] = "powersurge",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["ratbike"] = {
+		["Name"] = "Ratbike",
+		["Weight"] = 20,
+		["Price"] = 110000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["ruffian"] = {
+		["Name"] = "Ruffian",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["rrocket"] = {
+		["Name"] = "Rrocket",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["sanchez"] = {
+		["Name"] = "Sanchez",
+		["Weight"] = 15,
+		["Price"] = 140000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["sanchez2"] = {
+		["Name"] = "Sanchez 2",
+		["Weight"] = 15,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["sanctus"] = {
+		["Name"] = "Sanctus",
+		["Weight"] = 20,
+		["Price"] = 190000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["shotaro"] = {
+		["Name"] = "Shotaro",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["sovereign"] = {
+		["Name"] = "Sovereign",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["stryder"] = {
+		["Name"] = "Stryder",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["thrust"] = {
+		["Name"] = "Thrust",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["vader"] = {
+		["Name"] = "Vader",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["vindicator"] = {
+		["Name"] = "Vindicator",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["vortex"] = {
+		["Name"] = "Vortex",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["wolfsbane"] = {
+		["Name"] = "Wolfsbane",
+		["Weight"] = 20,
+		["Price"] = 100000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["zombiea"] = {
+		["Name"] = "Zombie A",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["zombieb"] = {
+		["Name"] = "Zombie B",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Bikes",
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+	["manchez2"] = {
+		["Name"] = "Manchez 2",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Motocicletas"
+	},
+
+-- Muscle
+	["blade"] = {
+		["Name"] = "Blade",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["broadway"] = {
+		["Name"] = "broadway",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["buccaneer"] = {
+		["Name"] = "Buccaneer",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["buccaneer2"] = {
+		["Name"] = "Buccaneer 2",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["chino"] = {
+		["Name"] = "Chino",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["chino2"] = {
+		["Name"] = "Chino 2",
+		["Weight"] = 45,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["clique"] = {
+		["Name"] = "Clique",
+		["Weight"] = 35,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["coquette3"] = {
+		["Name"] = "Coquette 3",
+		["Weight"] = 40,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["deviant"] = {
+		["Name"] = "Deviant",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator"] = {
+		["Name"] = "Dominator",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator2"] = {
+		["Name"] = "Dominator 2",
+		["Weight"] = 50,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator3"] = {
+		["Name"] = "Dominator 3",
+		["Weight"] = 30,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},	
+	["dominator4"] = {
+		["Name"] = "Dominator 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator5"] = {
+		["Name"] = "Dominator 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator6"] = {
+		["Name"] = "Dominator 6",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dukes"] = {
+		["Name"] = "Dukes",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dukes2"] = {
+		["Name"] = "Dukes 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dukes3"] = {
+		["Name"] = "Dukes 3",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["faction"] = {
+		["Name"] = "Faction",
+		["Weight"] = 50,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["faction2"] = {
+		["Name"] = "Faction 2",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["faction3"] = {
+		["Name"] = "Faction 3",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ellie"] = {
+		["Name"] = "Ellie",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["eudora"] = {
+		["Name"] = "eudora",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["gauntlet"] = {
+		["Name"] = "Gauntlet",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["gauntlet2"] = {
+		["Name"] = "Gauntlet 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["gauntlet3"] = {
+		["Name"] = "Gauntlet 3",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["gauntlet4"] = {
+		["Name"] = "Gauntlet 4",
+		["Weight"] = 40,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["gauntlet5"] = {
+		["Name"] = "Gauntlet 5",
+		["Weight"] = 40,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["hermes"] = {
+		["Name"] = "Hermes",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["hotknife"] = {
+		["Name"] = "Hotknife",
+		["Weight"] = 30,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["hustler"] = {
+		["Name"] = "Hustler",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["impaler"] = {
+		["Name"] = "Impaler",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["impaler2"] = {
+		["Name"] = "Impaler 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["impaler3"] = {
+		["Name"] = "Impaler 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["impaler4"] = {
+		["Name"] = "Impaler 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["imperator"] = {
+		["Name"] = "Imperator",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["imperator2"] = {
+		["Name"] = "Imperator 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["imperator3"] = {
+		["Name"] = "Imperator 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["lurcher"] = {
+		["Name"] = "Lurcher",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["moonbeam"] = {
+		["Name"] = "Moonbeam",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["moonbeam2"] = {
+		["Name"] = "Moonbeam 2",
+		["Weight"] = 40,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["nightshade"] = {
+		["Name"] = "Nightshade",
+		["Weight"] = 30,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["peyote2"] = {
+		["Name"] = "Peyote 2",
+		["Weight"] = 45,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["phoenix"] = {
+		["Name"] = "Phoenix",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["picador"] = {
+		["Name"] = "Picador",
+		["Weight"] = 60,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ratloader"] = {
+		["Name"] = "Ratloader",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ratloader2"] = {
+		["Name"] = "Ratloader 2",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ruiner"] = {
+		["Name"] = "Ruiner",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ruiner2"] = {
+		["Name"] = "Ruiner 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["ruiner3"] = {
+		["Name"] = "Ruiner 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["sabregt"] = {
+		["Name"] = "Sabre GT",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["sabregt2"] = {
+		["Name"] = "Sabregt 2",
+		["Weight"] = 50,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan"] = {
+		["Name"] = "Slamvan",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan2"] = {
+		["Name"] = "Slamvan 2",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan3"] = {
+		["Name"] = "Slamvan 3",
+		["Weight"] = 40,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan4"] = {
+		["Name"] = "Slamvan 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan5"] = {
+		["Name"] = "Slamvan 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["slamvan6"] = {
+		["Name"] = "Slamvan 6",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["stalion"] = {
+		["Name"] = "Stalion",
+		["Weight"] = 30,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["stalion2"] = {
+		["Name"] = "Stalion 2",
+		["Weight"] = 30,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["tahoma"] = {
+		["Name"] = "tahoma",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["tampa"] = {
+		["Name"] = "Tampa",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["tampa3"] = {
+		["Name"] = "Tampa 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["tulip"] = {
+		["Name"] = "Tulip",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["tulip2"] = {
+		["Name"] = "tulip2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["vamos"] = {
+		["Name"] = "Vamos",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["vigero"] = {
+		["Name"] = "Vigero",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["virgo"] = {
+		["Name"] = "Virgo",
+		["Weight"] = 25,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["virgo2"] = {
+		["Name"] = "Virgo 2",
+		["Weight"] = 50,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["virgo3"] = {
+		["Name"] = "Virgo 3",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["voodoo"] = {
+		["Name"] = "Voodoo",
+		["Weight"] = 45,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["voodoo2"] = {
+		["Name"] = "Voodoo 2",
+		["Weight"] = 25,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["yosemite"] = {
+		["Name"] = "Yosemite",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["yosemite2"] = {
+		["Name"] = "Yosemite 2",
+		["Weight"] = 50,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["yosemite3"] = {
+		["Name"] = "Yosemite 3",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+	["dominator7"] = {
+		["Name"] = "Dominator 7",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Muscles"
+	},
+
+-- Off-Road
+	["bfinjection"] = {
+		["Name"] = "Bfinjection",
+		["Weight"] = 20,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["bifta"] = {
+		["Name"] = "Bifta",
+		["Weight"] = 20,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["blazer"] = {
+		["Name"] = "Blazer",
+		["Weight"] = 10,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["blazer2"] = {
+		["Name"] = "Blazer 2",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["blazer3"] = {
+		["Name"] = "Blazer 3",
+		["Weight"] = 10,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["blazer4"] = {
+		["Name"] = "Blazer 4",
+		["Weight"] = 10,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["blazer5"] = {
+		["Name"] = "Blazer 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["bodhi2"] = {
+		["Name"] = "Bodhi 2",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["brawler"] = {
+		["Name"] = "Brawler",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["bruiser"] = {
+		["Name"] = "Bruiser",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["bruiser2"] = {
+		["Name"] = "Bruiser 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["bruiser3"] = {
+		["Name"] = "Bruiser 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["brutus"] = {
+		["Name"] = "Brutus",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["brutus2"] = {
+		["Name"] = "Brutus 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["brutus3"] = {
+		["Name"] = "Brutus 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["caracara"] = {
+		["Name"] = "Caracara",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["caracara2"] = {
+		["Name"] = "Caracara 2",
+		["Weight"] = 50,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dloader"] = {
+		["Name"] = "Dloader",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dubsta3"] = {
+		["Name"] = "Dubsta 3",
+		["Weight"] = 55,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dune"] = {
+		["Name"] = "Dune",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dune2"] = {
+		["Name"] = "Dune 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dune3"] = {
+		["Name"] = "Dune 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dune4"] = {
+		["Name"] = "Dune 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["dune5"] = {
+		["Name"] = "Dune 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["everon"] = {
+		["Name"] = "Everon",
+		["Weight"] = 50,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["freecrawler"] = {
+		["Name"] = "Freecrawler",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["hellion"] = {
+		["Name"] = "Hellion",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["insurgent"] = {
+		["Name"] = "Insurgent",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["insurgent2"] = {
+		["Name"] = "Insurgent 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["insurgent3"] = {
+		["Name"] = "Insurgent 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["kalahari"] = {
+		["Name"] = "Kalahari",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["marshall"] = {
+		["Name"] = "Marshall",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["monster"] = {
+		["Name"] = "Monster",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["monster3"] = {
+		["Name"] = "Monster 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["monster4"] = {
+		["Name"] = "Monster 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["monster5"] = {
+		["Name"] = "Monster 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["menacer"] = {
+		["Name"] = "Menacer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["outlaw"] = {
+		["Name"] = "Outlaw",
+		["Weight"] = 20,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["nightshark"] = {
+		["Name"] = "Nightshark",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},	
+	["rancherxl"] = {
+		["Name"] = "Rancher XL",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["rancherxl2"] = {
+		["Name"] = "Rancher XL2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["rebel"] = {
+		["Name"] = "Rebel",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["rebel2"] = {
+		["Name"] = "Rebel 2",
+		["Weight"] = 45,
+		["Price"] = 85000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["rcbandito"] = {
+		["Name"] = "RC Bandito",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["riata"] = {
+		["Name"] = "Riata",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["sandking"] = {
+		["Name"] = "Sandking",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["sandking2"] = {
+		["Name"] = "Sandking 2",
+		["Weight"] = 55,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["technical"] = {
+		["Name"] = "Technical",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["technical2"] = {
+		["Name"] = "Technical 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["technical3"] = {
+		["Name"] = "Technical 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["trophytruck"] = {
+		["Name"] = "Trophytruck",
+		["Weight"] = 20,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["trophytruck2"] = {
+		["Name"] = "Trophytruck 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["vagrant"] = {
+		["Name"] = "Vagrant",
+		["Weight"] = 30,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["zhaba"] = {
+		["Name"] = "Zhaba",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["verus"] = {
+		["Name"] = "Verus",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+	["winky"] = {
+		["Name"] = "Winky",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Off-Roads"
+	},
+
+-- Open Wheel
+	["formula"] = {
+		["Name"] = "Formula",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Formula 1"
+	},
+	["formula2"] = {
+		["Name"] = "Formula 2",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Formula 1"
+	},
+	["openwheel1"] = {
+		["Name"] = "Openwheel 1",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Formula 1"
+	},
+	["openwheel2"] = {
+		["Name"] = "Openwheel 2",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Formula 1"
+	},	
+-- Planes
+	["alphaz1"] = {
+		["Name"] = "Alphaz 1",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["avenger"] = {
+		["Name"] = "Avenger",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["avenger2"] = {
+		["Name"] = "Avenger 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["besra"] = {
+		["Name"] = "Besra",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["blimp"] = {
+		["Name"] = "Blimp",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["blimp2"] = {
+		["Name"] = "Blimp 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["blimp3"] = {
+		["Name"] = "Blimp 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["bombushka"] = {
+		["Name"] = "Bombushka",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["cargoplane"] = {
+		["Name"] = "Cargoplane",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["cargoplane2"] = {
+		["Name"] = "cargoplane2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["cuban800"] = {
+		["Name"] = "Cuban800",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["dodo"] = {
+		["Name"] = "Dodo",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["duster"] = {
+		["Name"] = "Duster",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["howard"] = {
+		["Name"] = "Howard",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["jet"] = {
+		["Name"] = "Jet",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["luxor"] = {
+		["Name"] = "Luxor",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["luxor2"] = {
+		["Name"] = "Luxor 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["mammatus"] = {
+		["Name"] = "Mammatus",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["microlight"] = {
+		["Name"] = "Microlight",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["miljet"] = {
+		["Name"] = "Miljet",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["mogul"] = {
+		["Name"] = "Mogul",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["molotok"] = {
+		["Name"] = "Molotok",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["nimbus"] = {
+		["Name"] = "Nimbus",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["nokota"] = {
+		["Name"] = "Nokota",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["pyro"] = {
+		["Name"] = "Pyro",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["rogue"] = {
+		["Name"] = "Rogue",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["seabreeze"] = {
+		["Name"] = "Seabreeze",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["shamal"] = {
+		["Name"] = "Shamal",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["starling"] = {
+		["Name"] = "Starling",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["strikeforce"] = {
+		["Name"] = "Strikeforce",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["stunt"] = {
+		["Name"] = "Stunt",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["tula"] = {
+		["Name"] = "Tula",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["velum"] = {
+		["Name"] = "Velum",
+		["Weight"] = 0,
+		["Price"] = 2000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["velum2"] = {
+		["Name"] = "Velum 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["vestra"] = {
+		["Name"] = "Vestra",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["volatol"] = {
+		["Name"] = "Volatol",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+	["alkonost"] = {
+		["Name"] = "Alkonost",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Aviões"
+	},
+
+-- SUVs
+	["baller"] = {
+		["Name"] = "Baller",
+		["Weight"] = 50,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["baller2"] = {
+		["Name"] = "Baller 2",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["baller3"] = {
+		["Name"] = "Baller 3",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["baller4"] = {
+		["Name"] = "Baller 4",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["baller5"] = {
+		["Name"] = "Baller 5",
+		["Weight"] = 50,
+		["Price"] = 400000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["baller6"] = {
+		["Name"] = "Baller 6",
+		["Weight"] = 50,
+		["Price"] = 410000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["bjxl"] = {
+		["Name"] = "Bjxl",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["cavalcade"] = {
+		["Name"] = "Cavalcade",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["cavalcade2"] = {
+		["Name"] = "Cavalcade 2",
+		["Weight"] = 45,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["contender"] = {
+		["Name"] = "Contender",
+		["Weight"] = 40,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["dubsta"] = {
+		["Name"] = "Dubsta",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["dubsta2"] = {
+		["Name"] = "Dubsta 2",
+		["Weight"] = 55,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["fq2"] = {
+		["Name"] = "Fq2",
+		["Weight"] = 40,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["granger"] = {
+		["Name"] = "Granger",
+		["Weight"] = 65,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["gresley"] = {
+		["Name"] = "Gresley",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["habanero"] = {
+		["Name"] = "Habanero",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["huntley"] = {
+		["Name"] = "Huntley",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["issi8"] = {
+		["Name"] = "issi8",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["landstalker"] = {
+		["Name"] = "Landstalker",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["landstalker2"] = {
+		["Name"] = "Landstalker 2",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["mesa"] = {
+		["Name"] = "Mesa",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["mesa2"] = {
+		["Name"] = "Mesa 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["novak"] = {
+		["Name"] = "Novak",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["patriot"] = {
+		["Name"] = "Patriot",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["patriot2"] = {
+		["Name"] = "Patriot 2",
+		["Weight"] = 50,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["radi"] = {
+		["Name"] = "Radi",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["rocoto"] = {
+		["Name"] = "Rocoto",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["seminole"] = {
+		["Name"] = "Seminole",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["seminole2"] = {
+		["Name"] = "Seminole 2",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["serrano"] = {
+		["Name"] = "Serrano",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["toros"] = {
+		["Name"] = "Toros",
+		["Weight"] = 50,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["xls"] = {
+		["Name"] = "Xls",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["xls2"] = {
+		["Name"] = "Xls 2",
+		["Weight"] = 50,
+		["Price"] = 410000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["squaddie"] = {
+		["Name"] = "Squaddie",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+
+-- Sedans
+	["asea"] = {
+		["Name"] = "Asea",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["asea2"] = {
+		["Name"] = "Asea 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["asterope"] = {
+		["Name"] = "Asterope",
+		["Weight"] = 20,
+		["Price"] = 30000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["cog55"] = {
+		["Name"] = "Cog55",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["cog552"] = {
+		["Name"] = "Cog55 2",
+		["Weight"] = 0,
+		["Price"] = 100,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Prefeitura"
+	},
+	["cognoscenti"] = {
+		["Name"] = "Cognoscenti",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["cognoscenti2"] = {
+		["Name"] = "Cognoscenti 2",
+		["Weight"] = 50,
+		["Price"] = 400000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["emperor"] = {
+		["Name"] = "Emperor",
+		["Weight"] = 25,
+		["Price"] = 5000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["emperor2"] = {
+		["Name"] = "Emperor 2",
+		["Weight"] = 20,
+		["Price"] = 2000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["emperor3"] = {
+		["Name"] = "Emperor 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["fugitive"] = {
+		["Name"] = "Fugitive",
+		["Weight"] = 60,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["glendale"] = {
+		["Name"] = "Glendale",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["glendale2"] = {
+		["Name"] = "Glendale 2",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["ingot"] = {
+		["Name"] = "Ingot",
+		["Weight"] = 40,
+		["Price"] = 15000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["intruder"] = {
+		["Name"] = "Intruder",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["limo2"] = {
+		["Name"] = "Limo 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["premier"] = {
+		["Name"] = "Premier",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["primo"] = {
+		["Name"] = "Primo",
+		["Weight"] = 30,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["primo2"] = {
+		["Name"] = "Primo 2",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["regina"] = {
+		["Name"] = "Regina",
+		["Weight"] = 40,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["romero"] = {
+		["Name"] = "Romero",
+		["Weight"] = 25,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["stafford"] = {
+		["Name"] = "Stafford",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["stanier"] = {
+		["Name"] = "Stanier",
+		["Weight"] = 25,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["stratum"] = {
+		["Name"] = "Stratum",
+		["Weight"] = 40,
+		["Price"] = 40000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["stretch"] = {
+		["Name"] = "Stretch",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["superd"] = {
+		["Name"] = "Superd",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["surge"] = {
+		["Name"] = "Surge",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["tailgater"] = {
+		["Name"] = "Tailgater",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["warrener"] = {
+		["Name"] = "Warrener",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["washington"] = {
+		["Name"] = "Washington",
+		["Weight"] = 40,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+	["tailgater2"] = {
+		["Name"] = "Tailgater 2",
+		["Weight"] = 40,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Sedans"
+	},
+
+-- Service
+	["airbus"] = {
+		["Name"] = "Airbus",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["brickade"] = {
+		["Name"] = "Brickade",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["bus"] = {
+		["Name"] = "Bus",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["coach"] = {
+		["Name"] = "Coach",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["pbus2"] = {
+		["Name"] = "Pbus 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["rallytruck"] = {
+		["Name"] = "Rally Truck",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["rentalbus"] = {
+		["Name"] = "Rental Bus",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["taxi"] = {
+		["Name"] = "Taxi",
+		["Weight"] = 0,
+		["Price"] = 500,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["tourbus"] = {
+		["Name"] = "Tour Bus",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["trash"] = {
+		["Name"] = "Trash",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["trash2"] = {
+		["Name"] = "Trash 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+	["wastelander"] = {
+		["Name"] = "Wastelander",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Serviços"
+	},
+
+-- Sports
+	["alpha"] = {
+		["Name"] = "Alpha",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["banshee"] = {
+		["Name"] = "Banshee",
+		["Weight"] = 30,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["bestiagts"] = {
+		["Name"] = "Bestia GTS",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["blista2"] = {
+		["Name"] = "Blista 2",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["blista3"] = {
+		["Name"] = "Blista 3",
+		["Weight"] = 30,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["buffalo"] = {
+		["Name"] = "Buffalo",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["buffalo2"] = {
+		["Name"] = "Buffalo 2",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["buffalo3"] = {
+		["Name"] = "Buffalo 3",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["carbonizzare"] = {
+		["Name"] = "Carbonizzare",
+		["Weight"] = 50,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["comet2"] = {
+		["Name"] = "Comet 2",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["comet3"] = {
+		["Name"] = "Comet 3",
+		["Weight"] = 40,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["comet5"] = {
+		["Name"] = "Comet 5",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["coquette"] = {
+		["Name"] = "Coquette",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["coquette4"] = {
+		["Name"] = "Coquette 4",
+		["Weight"] = 30,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["drafter"] = {
+		["Name"] = "Drafter",
+		["Weight"] = 40,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["deveste"] = {
+		["Name"] = "Deveste",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["elegy"] = {
+		["Name"] = "Elegy",
+		["Weight"] = 50,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["elegy2"] = {
+		["Name"] = "Elegy 2",
+		["Weight"] = 30,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["everon2"] = {
+		["Name"] = "Everon2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["feltzer2"] = {
+		["Name"] = "Feltzer 2",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["flashgt"] = {
+		["Name"] = "Flash GT",
+		["Weight"] = 40,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["furoregt"] = {
+		["Name"] = "Furore GT",
+		["Weight"] = 35,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["fusilade"] = {
+		["Name"] = "Fusilade",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["futo"] = {
+		["Name"] = "Futo",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["gb200"] = {
+		["Name"] = "Gb200",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["hotring"] = {
+		["Name"] = "Hotring",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["komoda"] = {
+		["Name"] = "Komoda",
+		["Weight"] = 50,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["imorgon"] = {
+		["Name"] = "Imorgon",
+		["Weight"] = 40,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["issi7"] = {
+		["Name"] = "Issi 7",
+		["Weight"] = 40,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["italigto"] = {
+		["Name"] = "Itali GTO",
+		["Weight"] = 30,
+		["Price"] = 220000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jugular"] = {
+		["Name"] = "Jugular",
+		["Weight"] = 30,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jubilee"] = {
+		["Name"] = "Jubilee",
+		["Weight"] = 50,
+		["Price"] = 350000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "SUVs"
+	},
+	["jester"] = {
+		["Name"] = "Jester",
+		["Weight"] = 30,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jester2"] = {
+		["Name"] = "Jester 2",
+		["Weight"] = 30,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jester3"] = {
+		["Name"] = "Jester 3",
+		["Weight"] = 30,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["khamelion"] = {
+		["Name"] = "Khamelion",
+		["Weight"] = 30,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["kuruma"] = {
+		["Name"] = "Kuruma",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["kuruma2"] = {
+		["Name"] = "Kuruma 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["locust"] = {
+		["Name"] = "Locust",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["lynx"] = {
+		["Name"] = "Lynx",
+		["Weight"] = 35,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["massacro"] = {
+		["Name"] = "Massacro",
+		["Weight"] = 50,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["massacro2"] = {
+		["Name"] = "Massacro 2",
+		["Weight"] = 50,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["neo"] = {
+		["Name"] = "Neo",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["neon"] = {
+		["Name"] = "Neon",
+		["Weight"] = 30,
+		["Price"] = 230000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["ninef"] = {
+		["Name"] = "Ninef",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["ninef2"] = {
+		["Name"] = "Ninef 2",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["omnis"] = {
+		["Name"] = "Omnis",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["paragon"] = {
+		["Name"] = "Paragon",
+		["Weight"] = 30,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["paragon2"] = {
+		["Name"] = "Paragon 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["pariah"] = {
+		["Name"] = "Pariah",
+		["Weight"] = 30,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["panthere"] = {
+		["Name"] = "panthere",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["penumbra"] = {
+		["Name"] = "Penumbra",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["penumbra2"] = {
+		["Name"] = "Penumbra 2",
+		["Weight"] = 30,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["r300"] = {
+		["Name"] = "r300",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["raiden"] = {
+		["Name"] = "Raiden",
+		["Weight"] = 40,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["rapidgt"] = {
+		["Name"] = "Rapid GT",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["rapidgt2"] = {
+		["Name"] = "Rapidgt GT2",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["raptor"] = {
+		["Name"] = "Raptor",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["revolter"] = {
+		["Name"] = "Revolter",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["ruston"] = {
+		["Name"] = "Ruston",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schafter2"] = {
+		["Name"] = "Schafter 2",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schafter3"] = {
+		["Name"] = "Schafter 3",
+		["Weight"] = 50,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schafter4"] = {
+		["Name"] = "Schafter 4",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schafter5"] = {
+		["Name"] = "Schafter 5",
+		["Weight"] = 50,
+		["Price"] = 400000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schafter6"] = {
+		["Name"] = "Schafter 6",
+		["Weight"] = 50,
+		["Price"] = 320000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schlagen"] = {
+		["Name"] = "Schlagen",
+		["Weight"] = 30,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["schwarzer"] = {
+		["Name"] = "Schwarzer",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["sentinel3"] = {
+		["Name"] = "Sentinel 3",
+		["Weight"] = 30,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["seven70"] = {
+		["Name"] = "Seven 70",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["specter"] = {
+		["Name"] = "Specter",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["specter2"] = {
+		["Name"] = "Specter 2",
+		["Weight"] = 20,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["streiter"] = {
+		["Name"] = "Streiter",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["sugoi"] = {
+		["Name"] = "Sugoi",
+		["Weight"] = 30,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["sultan"] = {
+		["Name"] = "Sultan",
+		["Weight"] = 30,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["sultan2"] = {
+		["Name"] = "Sultan 2",
+		["Weight"] = 30,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["surano"] = {
+		["Name"] = "Surano",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tampa2"] = {
+		["Name"] = "Tampa 2",
+		["Weight"] = 35,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tropos"] = {
+		["Name"] = "Tropos",
+		["Weight"] = 35,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["verlierer2"] = {
+		["Name"] = "Verlierer 2",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["vstr"] = {
+		["Name"] = "Vstr",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["zr380"] = {
+		["Name"] = "Zr380",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["zr3802"] = {
+		["Name"] = "Zr380 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["zr3803"] = {
+		["Name"] = "Zr380 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["italirsx"] = {
+		["Name"] = "Itali RSX",
+		["Weight"] = 20,
+		["Price"] = 280000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["veto"] = {
+		["Name"] = "Veto",
+		["Weight"] = 0,
+		["Price"] = 20000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["veto2"] = {
+		["Name"] = "Veto 2",
+		["Weight"] = 0,
+		["Price"] = 20000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["zr350"] = {
+		["Name"] = "ZR 350",
+		["Weight"] = 20,
+		["Price"] = 160000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["calico"] = {
+		["Name"] = "Calico",
+		["Weight"] = 20,
+		["Price"] = 240000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["futo2"] = {
+		["Name"] = "Futo 2",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["euros"] = {
+		["Name"] = "Euros",
+		["Weight"] = 30,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jester4"] = {
+		["Name"] = "Jester 4",
+		["Weight"] = 30,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["remus"] = {
+		["Name"] = "Remus",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["comet6"] = {
+		["Name"] = "Comet 6",
+		["Weight"] = 30,
+		["Price"] = 190000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["growler"] = {
+		["Name"] = "Growler",
+		["Weight"] = 30,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["vectre"] = {
+		["Name"] = "Vectre",
+		["Weight"] = 40,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["cypher"] = {
+		["Name"] = "Cypher",
+		["Weight"] = 20,
+		["Price"] = 260000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["sultan3"] = {
+		["Name"] = "Sultan 3",
+		["Weight"] = 30,
+		["Price"] = 250000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["rt3000"] = {
+		["Name"] = "RT 3000",
+		["Weight"] = 20,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["ardent"] = {
+		["Name"] = "Ardent",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["btype"] = {
+		["Name"] = "Btype",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["btype2"] = {
+		["Name"] = "Btype 2",
+		["Weight"] = 30,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["btype3"] = {
+		["Name"] = "Btype 3",
+		["Weight"] = 50,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["casco"] = {
+		["Name"] = "Casco",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["cheetah2"] = {
+		["Name"] = "Cheetah 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["coquette2"] = {
+		["Name"] = "Coquette 2",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["deluxo"] = {
+		["Name"] = "Deluxo",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["dynasty"] = {
+		["Name"] = "Dynasty",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["fagaloa"] = {
+		["Name"] = "Fagaloa",
+		["Weight"] = 50,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["feltzer3"] = {
+		["Name"] = "Feltzer 3",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["gt500"] = {
+		["Name"] = "GT 500",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["infernus2"] = {
+		["Name"] = "Infernus 2",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jb700"] = {
+		["Name"] = "JB 700",
+		["Weight"] = 30,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["jb7002"] = {
+		["Name"] = "JB 7002",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["mamba"] = {
+		["Name"] = "Mamba",
+		["Weight"] = 50,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["manana"] = {
+		["Name"] = "Manana",
+		["Weight"] = 35,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["manana2"] = {
+		["Name"] = "Manana 2",
+		["Weight"] = 35,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["michelli"] = {
+		["Name"] = "Michelli",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["monroe"] = {
+		["Name"] = "Monroe",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["nebula"] = {
+		["Name"] = "Nebula",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["peyote"] = {
+		["Name"] = "Peyote",
+		["Weight"] = 35,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["peyote3"] = {
+		["Name"] = "Peyote 3",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["pigalle"] = {
+		["Name"] = "Pigalle",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["rapidgt3"] = {
+		["Name"] = "Rapid GT3",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["retinue"] = {
+		["Name"] = "Retinue",
+		["Weight"] = 40,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["retinue2"] = {
+		["Name"] = "Retinue 2",
+		["Weight"] = 40,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["stinger"] = {
+		["Name"] = "Stinger",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["stingergt"] = {
+		["Name"] = "Stinger GT",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["stromberg"] = {
+		["Name"] = "Stromberg",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["swinger"] = {
+		["Name"] = "Swinger",
+		["Weight"] = 50,
+		["Price"] = 120000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["torero"] = {
+		["Name"] = "Torero",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado"] = {
+		["Name"] = "Tornado",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado2"] = {
+		["Name"] = "Tornado 2",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado3"] = {
+		["Name"] = "Tornado 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado4"] = {
+		["Name"] = "Tornado 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado5"] = {
+		["Name"] = "Tornado 5",
+		["Weight"] = 50,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["tornado6"] = {
+		["Name"] = "Tornado 6",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["turismo2"] = {
+		["Name"] = "Turismo 2",
+		["Weight"] = 30,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["viseris"] = {
+		["Name"] = "Viseris",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["z190"] = {
+		["Name"] = "Z190",
+		["Weight"] = 40,
+		["Price"] = 110000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["ztype"] = {
+		["Name"] = "Ztype",
+		["Weight"] = 50,
+		["Price"] = 250000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["zion3"] = {
+		["Name"] = "Zion 3",
+		["Weight"] = 40,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["cheburek"] = {
+		["Name"] = "Cheburek",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+	["toreador"] = {
+		["Name"] = "Toreador",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Esportivos"
+	},
+
+-- Super
+	["adder"] = {
+		["Name"] = "Adder",
+		["Weight"] = 20,
+		["Price"] = 190000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["autarch"] = {
+		["Name"] = "Autarch",
+		["Weight"] = 20,
+		["Price"] = 240000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["banshee2"] = {
+		["Name"] = "Banshee 2",
+		["Weight"] = 20,
+		["Price"] = 190000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["bullet"] = {
+		["Name"] = "Bullet",
+		["Weight"] = 30,
+		["Price"] = 150000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["cheetah"] = {
+		["Name"] = "Cheetah",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["cyclone"] = {
+		["Name"] = "Cyclone",
+		["Weight"] = 20,
+		["Price"] = 300000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["entity2"] = {
+		["Name"] = "Entity 2",
+		["Weight"] = 30,
+		["Price"] = 220000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["entity3"] = {
+		["Name"] = "entity3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["entityxf"] = {
+		["Name"] = "Entity XF",
+		["Weight"] = 20,
+		["Price"] = 250000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["emerus"] = {
+		["Name"] = "Emerus",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["fmj"] = {
+		["Name"] = "Fmj",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["furia"] = {
+		["Name"] = "Furia",
+		["Weight"] = 20,
+		["Price"] = 300000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["gp1"] = {
+		["Name"] = "Gp1",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["infernus"] = {
+		["Name"] = "Infernus",
+		["Weight"] = 20,
+		["Price"] = 130000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["italigtb"] = {
+		["Name"] = "Italigtb",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["italigtb2"] = {
+		["Name"] = "Italigtb 2",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["krieger"] = {
+		["Name"] = "Krieger",
+		["Weight"] = 20,
+		["Price"] = 250000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["le7b"] = {
+		["Name"] = "Le7b",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["nero"] = {
+		["Name"] = "Nero",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["nero2"] = {
+		["Name"] = "Nero 2",
+		["Weight"] = 20,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["osiris"] = {
+		["Name"] = "Osiris",
+		["Weight"] = 20,
+		["Price"] = 230000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["penetrator"] = {
+		["Name"] = "Penetrator",
+		["Weight"] = 30,
+		["Price"] = 140000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["pfister811"] = {
+		["Name"] = "Pfister 811",
+		["Weight"] = 20,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["prototipo"] = {
+		["Name"] = "Prototipo",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["reaper"] = {
+		["Name"] = "Reaper",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["s80"] = {
+		["Name"] = "S80",
+		["Weight"] = 40,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["sc1"] = {
+		["Name"] = "Sc1",
+		["Weight"] = 40,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["scramjet"] = {
+		["Name"] = "Scramjet",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["sheava"] = {
+		["Name"] = "Sheava",
+		["Weight"] = 30,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["sultanrs"] = {
+		["Name"] = "Sultan RS",
+		["Weight"] = 30,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["t20"] = {
+		["Name"] = "T20",
+		["Weight"] = 20,
+		["Price"] = 300000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["taipan"] = {
+		["Name"] = "Taipan",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["tempesta"] = {
+		["Name"] = "Tempesta",
+		["Weight"] = 20,
+		["Price"] = 170000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["tezeract"] = {
+		["Name"] = "Tezeract",
+		["Weight"] = 20,
+		["Price"] = 300000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["thrax"] = {
+		["Name"] = "Thrax",
+		["Weight"] = 50,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["tigon"] = {
+		["Name"] = "Tigon",
+		["Weight"] = 30,
+		["Price"] = 220000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["turismor"] = {
+		["Name"] = "Turismo R",
+		["Weight"] = 20,
+		["Price"] = 190000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["tyrant"] = {
+		["Name"] = "Tyrant",
+		["Weight"] = 20,
+		["Price"] = 210000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["tyrus"] = {
+		["Name"] = "Tyrus",
+		["Weight"] = 20,
+		["Price"] = 220000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["vacca"] = {
+		["Name"] = "Vacca",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["vagner"] = {
+		["Name"] = "Vagner",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["vigilante"] = {
+		["Name"] = "Vigilante",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["virtue"] = {
+		["Name"] = "virtue",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["visione"] = {
+		["Name"] = "Visione",
+		["Weight"] = 20,
+		["Price"] = 230000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["voltic"] = {
+		["Name"] = "Voltic",
+		["Weight"] = 20,
+		["Price"] = 180000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["voltic2"] = {
+		["Name"] = "Voltic 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["xa21"] = {
+		["Name"] = "Xa21",
+		["Weight"] = 20,
+		["Price"] = 260000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["zentorno"] = {
+		["Name"] = "Zentorno",
+		["Weight"] = 20,
+		["Price"] = 230000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+	["zorrusso"] = {
+		["Name"] = "Zorrusso",
+		["Weight"] = 20,
+		["Price"] = 200000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Clássicos"
+	},
+
+-- Trailer
+	["armytanker"] = {
+		["Name"] = "Armytanker",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["armytrailer"] = {
+		["Name"] = "Armytrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["armytrailer2"] = {
+		["Name"] = "Armytrailer 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["baletrailer"] = {
+		["Name"] = "Baletrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["boattrailer"] = {
+		["Name"] = "Boattrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["cablecar"] = {
+		["Name"] = "Cablecar",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["docktrailer"] = {
+		["Name"] = "Docktrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["freighttrailer"] = {
+		["Name"] = "Freighttrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["graintrailer"] = {
+		["Name"] = "Graintrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["proptrailer"] = {
+		["Name"] = "Proptrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["raketrailer"] = {
+		["Name"] = "Raketrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tr2"] = {
+		["Name"] = "Tr2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tr3"] = {
+		["Name"] = "Tr3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tr4"] = {
+		["Name"] = "Tr4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trflat"] = {
+		["Name"] = "Trflat",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tvtrailer"] = {
+		["Name"] = "Tvtrailer",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tanker"] = {
+		["Name"] = "Tanker",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["tanker2"] = {
+		["Name"] = "Tanker 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailerlarge"] = {
+		["Name"] = "Trailerlarge",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailerlogs"] = {
+		["Name"] = "Trailerlogs",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailers"] = {
+		["Name"] = "Trailers",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailers2"] = {
+		["Name"] = "Trailers 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailers3"] = {
+		["Name"] = "Trailers 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+	["trailers4"] = {
+		["Name"] = "Trailers 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trailers"
+	},
+
+-- Trains
+	["freight"] = {
+		["Name"] = "Freight",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["freightcar"] = {
+		["Name"] = "Freightcar",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["freightcont1"] = {
+		["Name"] = "Freightcont 1",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["freightcont2"] = {
+		["Name"] = "Freightcont 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["freightgrain"] = {
+		["Name"] = "Freightgrain",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["metrotrain"] = {
+		["Name"] = "Metrotrain",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+	["tankercar"] = {
+		["Name"] = "Rankercar",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Trens"
+	},
+
+-- Utility
+	["airtug"] = {
+		["Name"] = "Airtug",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["caddy"] = {
+		["Name"] = "Caddy",
+		["Weight"] = 10,
+		["Price"] = 30000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["caddy2"] = {
+		["Name"] = "Caddy 2",
+		["Weight"] = 10,
+		["Price"] = 25000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["caddy3"] = {
+		["Name"] = "Caddy 3",
+		["Weight"] = 10,
+		["Price"] = 20000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["docktug"] = {
+		["Name"] = "Docktug",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["forklift"] = {
+		["Name"] = "Forklift",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["mower"] = {
+		["Name"] = "Mower",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["ripley"] = {
+		["Name"] = "Ripley",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["sadler"] = {
+		["Name"] = "Sadler",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["sadler2"] = {
+		["Name"] = "Sadler 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["scrap"] = {
+		["Name"] = "Scrap",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["towtruck"] = {
+		["Name"] = "Towtruck",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["towtruck2"] = {
+		["Name"] = "Towtruck 2",
+		["Weight"] = 0,
+		["Price"] = 1000,
+		["Mode"] = "Work",
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["tractor"] = {
+		["Name"] = "Tractor",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["tractor2"] = {
+		["Name"] = "Tractor 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["tractor3"] = {
+		["Name"] = "Tractor 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["utillitruck"] = {
+		["Name"] = "Utillitruck",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["utillitruck2"] = {
+		["Name"] = "Utillitruck 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["utillitruck3"] = {
+		["Name"] = "Utillitruck 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+	["slamtruck"] = {
+		["Name"] = "Slamtruck",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Utilitários"
+	},
+
+-- Vans
+	["bison"] = {
+		["Name"] = "Bison",
+		["Weight"] = 30,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["bison2"] = {
+		["Name"] = "Bison 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["bison3"] = {
+		["Name"] = "Bison 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["bobcatxl"] = {
+		["Name"] = "Bobcat XL",
+		["Weight"] = 45,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["boxville"] = {
+		["Name"] = "Boxville",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["boxville2"] = {
+		["Name"] = "Boxville 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["boxville3"] = {
+		["Name"] = "Boxville 3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["boxville4"] = {
+		["Name"] = "Boxville",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["boxville5"] = {
+		["Name"] = "Boxville 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["burrito"] = {
+		["Name"] = "Burrito",
+		["Weight"] = 35,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["burrito2"] = {
+		["Name"] = "Burrito 2",
+		["Weight"] = 40,
+		["Price"] = 50000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["burrito3"] = {
+		["Name"] = "Burrito 3",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["burrito4"] = {
+		["Name"] = "Burrito 4",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["burrito5"] = {
+		["Name"] = "Burrito 5",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["camper"] = {
+		["Name"] = "Camper",
+		["Weight"] = 50,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["gburrito"] = {
+		["Name"] = "Gburrito",
+		["Weight"] = 50,
+		["Price"] = 100000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["gburrito2"] = {
+		["Name"] = "Gburrito 2",
+		["Weight"] = 10,
+		["Price"] = 1000,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["journey"] = {
+		["Name"] = "Journey",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["journey2"] = {
+		["Name"] = "journey2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["minivan"] = {
+		["Name"] = "Minivan",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["minivan2"] = {
+		["Name"] = "Minivan 2",
+		["Weight"] = 40,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["paradise"] = {
+		["Name"] = "Paradise",
+		["Weight"] = 50,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["pony"] = {
+		["Name"] = "Pony",
+		["Weight"] = 40,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["pony2"] = {
+		["Name"] = "Pony 2",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["rumpo"] = {
+		["Name"] = "Rumpo",
+		["Weight"] = 30,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["rumpo2"] = {
+		["Name"] = "Rumpo 2",
+		["Weight"] = 40,
+		["Price"] = 80000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["rumpo3"] = {
+		["Name"] = "Rumpo 3",
+		["Weight"] = 50,
+		["Price"] = 300000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["speedo"] = {
+		["Name"] = "Speedo",
+		["Weight"] = 50,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["speedo2"] = {
+		["Name"] = "Speedo 2",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["speedo4"] = {
+		["Name"] = "Speedo 4",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["surfer"] = {
+		["Name"] = "Surfer",
+		["Weight"] = 40,
+		["Price"] = 60000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["surfer2"] = {
+		["Name"] = "Surfer 2",
+		["Weight"] = 40,
+		["Price"] = 40000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["surfer3"] = {
+		["Name"] = "surfer3",
+		["Weight"] = 40,
+		["Price"] = 100,
+		["Mode"] = nil,
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["taco"] = {
+		["Name"] = "Taco",
+		["Weight"] = 15,
+		["Price"] = 2000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["youga"] = {
+		["Name"] = "Youga",
+		["Weight"] = 70,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["youga2"] = {
+		["Name"] = "Youga 2",
+		["Weight"] = 70,
+		["Price"] = 70000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	["youga3"] = {
+		["Name"] = "Youga 3",
+		["Weight"] = 70,
+		["Price"] = 90000,
+		["Mode"] = "Cars",
+		["Gemstone"] = 0,
+		["Class"] = "Vans"
+	},
+	-- Importados
+	["bmwi8"] = {
+		["Name"] = "BMW I8",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bmwm4gts"] = {
+		["Name"] = "BMW M4 GTS",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["ferrari812"] = {
+		["Name"] = "Ferrari 812",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["ferrarif12"] = {
+		["Name"] = "Ferrari F12",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["ferrariitalia"] = {
+		["Name"] = "Ferrari Italia",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["fordmustang"] = {
+		["Name"] = "Ford Mustang",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["lamborghinihuracan"] = {
+		["Name"] = "Lamborghini Huracan",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["lancerevolutionx"] = {
+		["Name"] = "Lancer Evolution X",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mazdarx7"] = {
+		["Name"] = "Mazda RX7",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mazdarx72"] = {
+		["Name"] = "Mazda RX7 RB",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mustangfast"] = {
+		["Name"] = "Mustang Fastback",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["nissangtr"] = {
+		["Name"] = "Nissan GT-R R35",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["nissangtr2"] = {
+		["Name"] = "Nissan GT-R EE",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["nissangtr3"] = {
+		["Name"] = "Nissan GT-R RB",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["nissangtrnismo"] = {
+		["Name"] = "Nissan GT-R Nismo",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["skyliner34"] = {
+		["Name"] = "Skyline R34",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["skyliner342"] = {
+		["Name"] = "Skyline R34 FF",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["subarubrz"] = {
+		["Name"] = "Subaru Brz RB",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["toyotasupra"] = {
+		["Name"] = "Toyota Supra",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["toyotasupra2"] = {
+		["Name"] = "Toyota Supra 2020",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["acuransx"] = {
+		["Name"] = "Acura NSX",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["golfgti"] = {
+		["Name"] = "Golf GTI",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["escaladegt900"] = {
+		["Name"] = "Escalade GT900",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["escalade2021"] = {
+		["Name"] = "Escalade 2021",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["dodgecharger1970"] = {
+		["Name"] = "Dodge Charger 1970",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bmwm5e34"] = {
+		["Name"] = "BMW M5 e34",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["golfmk7"] = {
+		["Name"] = "Golf Mk7",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["jeepcherokee"] = {
+		["Name"] = "Jeep Cherokee",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["porsche911"] = {
+		["Name"] = "Porsche 911 GT3",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["350z"] = {
+		["Name"] = "Nissan 350z RB",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["urbandevil"] = {
+		["Name"] = "Urban Devil",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bloodline"] = {
+		["Name"] = "Bloodline King",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["shelbygt500"] = {
+		["Name"] = "Shelby GT500",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bmwm1wb"] = {
+		["Name"] = "BMW M1 Widebody",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["lamborghinihuracanlw"] = {
+		["Name"] = "Lamborghini LW",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["panameramansory"] = {
+		["Name"] = "Porsche Panamera",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["wheelchair"] = {
+		["Name"] = "Cadeira de Rodas",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["ferrarif40"] = {
+		["Name"] = "Ferrari F40",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["astonmartindbs"] = {
+		["Name"] = "Aston Martin DBS",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["nissangtr50"] = {
+		["Name"] = "Nissan GT-R 50th",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["dodgechargerrt69"] = {
+		["Name"] = "Dodge Charger RT69",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mercedesamg63"] = {
+		["Name"] = "Dodge Charger RT69",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mercedesamg63"] = {
+		["Name"] = "Mercedes C63-S",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["r1"] = {
+		["Name"] = "Yamaha R1",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["r6"] = {
+		["Name"] = "Yamaha R6",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["s1000rr"] = {
+		["Name"] = "BMW S1000RR",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["camaro"] = {
+		["Name"] = "Chevrolet Camaro 2021",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mustang1969"] = {
+		["Name"] = "Ford Mustang 1969",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["audir8"] = {
+		["Name"] = "Audi R8",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["audirs6"] = {
+		["Name"] = "Audi RS6",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["m8competition"] = {
+		["Name"] = "BMW M8 Competition",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["rangerover"] = {
+		["Name"] = "Range Rover",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["aventador"] = {
+		["Name"] = "Lamborghini Aventador",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bentleybacalar"] = {
+		["Name"] = "Bentley Bacalar",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["bugattiatlantic"] = {
+		["Name"] = "Bugatti Atlantic",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["corvettec7"] = {
+		["Name"] = "Corvette C7",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["mercedesg65"] = {
+		["Name"] = "Mercedes G65",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["vwtouareg"] = {
+		["Name"] = "Volkswagen Touareg",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	["xj6"] = {
+		["Name"] = "Yamaha XJ6",
+		["Weight"] = 20,
+		["Price"] = 10000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 60,
+		["Class"] = "Importados"
+	},
+	-- Armored
+	["armoredgle"] = {
+		["Name"] = "Mercedes GLE Blindada",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 180,
+		["Class"] = "Blindados"
+	},
+	["armoredvelar"] = {
+		["Name"] = "Range Rover Velar Blindada",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 180,
+		["Class"] = "Blindados"
+	},
+	["armoredx6"] = {
+		["Name"] = "BMW X6 Blindada",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 180,
+		["Class"] = "Blindados"
+	},
+	["WRarmoredurus22"] = {
+		["Name"] = "Lamborghini Urus",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["17m760i"] = {
+		["Name"] = "BMW 760i",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["AGSTORExc90r"] = {
+		["Name"] = "Volvo XC-90",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 200,
+		["Class"] = "Blindados"
+	},
+	["armoredjettagli"] = {
+		["Name"] = "Volkswagen Jetta GLI",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["armoredporschemacan"] = {
+		["Name"] = "Porsche Macan",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["armoredrs5"] = {
+		["Name"] = "Audi RS5",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["armoredrs5"] = {
+		["Name"] = "Audi RS5",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["armoredx7m60i"] = {
+		["Name"] = "BMW X7 M60i",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["mlnovitec"] = {
+		["Name"] = "Maserati Novitec",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["nivus"] = {
+		["Name"] = "Volkswagen Nivus",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 300,
+		["Class"] = "Blindados"
+	},
+	["rs6"] = {
+		["Name"] = "Audi RS6",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["rs6"] = {
+		["Name"] = "Audi RSQ8M",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["WRcorolla22"] = {
+		["Name"] = "Toyota Corolla",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["WRgls63"] = {
+		["Name"] = "Mercedes GLS63",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["WRpurosangue"] = {
+		["Name"] = "Ferrari Puro Sangue",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
+	["WRpurosangue"] = {
+		["Name"] = "Ferrari Puro Sangue",
+		["Weight"] = 70,
+		["Price"] = 20000,
+		["Mode"] = "Rental",
+		["Gemstone"] = 120,
+		["Class"] = "Blindados"
+	},
 }
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLEGLOBAL
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleGlobal()
-	return vehglobal
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLEEXIT
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleExist(vname)
-	if vehglobal[vname] then
-		return true
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLEGLOBAL
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleGlobal()
+		return List
 	end
-
-	return false
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLENAME
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleName(vname)
-	if vehglobal[vname] then
-		return vehglobal[vname][1]
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLEEXIST
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleExist(Name)
+		return List[Name] and true or false
 	end
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLECHEST
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleChest(vname)
-	if vehglobal[vname] then
-		return parseInt(vehglobal[vname][2])
-	end
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLEPRICE
------------------------------------------------------------------------------------------------------------------------------------------
-function vehiclePrice(vname)
-	if vehglobal[vname] then
-		return parseInt(vehglobal[vname][3])
-	end
-
-	-- return 0
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLETYPE
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleType(vname)
-	if vehglobal[vname] then
-		return vehglobal[vname][4]
-	end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLENAME
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleName(Name)
+		if List[Name] and List[Name]["Name"] then
+			return List[Name]["Name"]
+		end
 	
-	-- return "Desconhecido"
-end
------------------------------------------------------------------------------------------------------------------------------------------
--- VEHICLEGEMS
------------------------------------------------------------------------------------------------------------------------------------------
-function vehicleGems(vname)
-	if vehglobal[vname] then
-		return vehglobal[vname][5]
+		return false
 	end
-end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLECHEST
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleChest(Name)
+		if List[Name] and List[Name]["Weight"] then
+			return List[Name]["Weight"]
+		end
+	
+		return 0
+	end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLEPRICE
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehiclePrice(Name)
+		if List[Name] and List[Name]["Price"] then
+			return List[Name]["Price"]
+		end
+	
+		return 0
+	end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLEMODE
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleMode(Name)
+		if List[Name] and List[Name]["Mode"] then
+			return List[Name]["Mode"]
+		end
+	
+		return false
+	end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLEGEMSTONE
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function vehicleGems(Name)
+		if List[Name] and List[Name]["Gemstone"] then
+			return List[Name]["Gemstone"]
+		end
+	
+		return 0
+	end
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	-- VEHICLECLASS
+	-----------------------------------------------------------------------------------------------------------------------------------------
+	function VehicleClass(Name)
+		if List[Name] and List[Name]["Class"] then
+			return List[Name]["Class"]
+		end
+	
+		return "Desconhecido"
+	end
