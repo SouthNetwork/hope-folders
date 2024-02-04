@@ -8,14 +8,16 @@ client_scripts {
 	"lib/vehicles.lua",
 	"lib/itemlist.lua",
 	"lib/utils.lua",
-	"client/*"
+	"client/*",
+	"config/*"
 }
 
 server_scripts {
 	"lib/vehicles.lua",
 	"lib/itemlist.lua",
 	"lib/utils.lua",
-	"modules/*"
+	"modules/*",
+	"config/*"
 }
 
 files {
